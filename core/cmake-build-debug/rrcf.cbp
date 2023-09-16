@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="rrcf"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="debug">
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 debug"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="release">
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 release"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rrcf">
+				<Option output="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/rrcf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/shirvaik/CLionProjects/rrcf/core/src"/>
+					<Add directory="/home/shirvaik/CLionProjects/rrcf/core/test"/>
+					<Add directory="/home/shirvaik/CLionProjects/rrcf/core/third_party"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 rrcf"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rrcf/fast">
+				<Option output="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/rrcf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/shirvaik/CLionProjects/rrcf/core/src"/>
+					<Add directory="/home/shirvaik/CLionProjects/rrcf/core/test"/>
+					<Add directory="/home/shirvaik/CLionProjects/rrcf/core/third_party"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 rrcf/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/shirvaik/CLionProjects/rrcf/core/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/analysis/SplitFrequencyComputer.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/analysis/SplitFrequencyComputer.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/commons/Data.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/commons/Data.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/commons/utility.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/commons/utility.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/Forest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/Forest.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestOptions.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestOptions.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestPredictor.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestPredictor.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestPredictors.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestPredictors.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestTrainer.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestTrainer.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestTrainers.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/forest/ForestTrainers.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/CausalSurvivalPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/CausalSurvivalPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/InstrumentalPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/InstrumentalPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/LLCausalPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/LLCausalPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/LocalLinearPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/LocalLinearPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/MultiCausalPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/MultiCausalPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/MultiRegressionPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/MultiRegressionPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/ObjectiveBayesDebiaser.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/ObjectiveBayesDebiaser.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/Prediction.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/Prediction.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/PredictionValues.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/PredictionValues.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/ProbabilityPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/ProbabilityPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/QuantilePredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/QuantilePredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/RegressionPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/RegressionPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/SurvivalPredictionStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/SurvivalPredictionStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/DefaultPredictionCollector.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/DefaultPredictionCollector.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/OptimizedPredictionCollector.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/OptimizedPredictionCollector.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/SampleWeightComputer.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/SampleWeightComputer.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/TreeTraverser.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/prediction/collector/TreeTraverser.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/CausalSurvivalRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/CausalSurvivalRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/InstrumentalRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/InstrumentalRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/LLRegressionRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/LLRegressionRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/MultiCausalRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/MultiCausalRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/MultiNoopRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/MultiNoopRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/NoopRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/NoopRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/QuantileRelabelingStrategy.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/relabeling/QuantileRelabelingStrategy.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/sampling/RandomSampler.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/sampling/RandomSampler.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/sampling/SamplingOptions.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/sampling/SamplingOptions.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/CausalSurvivalSplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/CausalSurvivalSplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/InstrumentalGLM.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/InstrumentalGLM.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/InstrumentalSplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/InstrumentalSplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/MultiCausalSplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/MultiCausalSplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/MultiRegressionSplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/MultiRegressionSplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/ProbabilitySplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/ProbabilitySplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/RegressionSplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/RegressionSplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/SurvivalSplittingRule.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/SurvivalSplittingRule.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/CausalSurvivalSplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/CausalSurvivalSplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/InstrumentalSplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/InstrumentalSplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/MultiCausalSplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/MultiCausalSplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/MultiRegressionSplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/MultiRegressionSplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/ProbabilitySplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/ProbabilitySplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/RegressionSplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/RegressionSplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/SurvivalSplittingRuleFactory.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/splitting/factory/SurvivalSplittingRuleFactory.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/tree/Tree.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/tree/Tree.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/tree/TreeOptions.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/tree/TreeOptions.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/tree/TreeTrainer.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/src/tree/TreeTrainer.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/analysis/SplitFrequencyUnitTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/commons/utilitytest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/forest/CausalForestTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/forest/CausalSurvivalForestTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/forest/ForestCharacterizationTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/forest/ForestSmokeTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/forest/LocalLinearForestTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/forest/RegressionForestTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/prediction/InstrumentalPredictionStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/prediction/MultiCausalPredictionStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/prediction/MultiRegressionPredictionStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/prediction/QuantilePredictionStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/prediction/RegressionPredictionStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/prediction/SurvivalPredictionStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/relabeling/InstrumentalRelabelingStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/relabeling/MultiCausalRelabelingStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/relabeling/QuantileRelabelingStrategyTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/sampling/RandomSamplerTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/setup.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/splitting/MultiCausalSplittingRuleTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/splitting/MultiRegressionSplittingRuleTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/splitting/SplittingRuleInvarianceTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/splitting/SurvivalSplittingRuleTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/tree/TreePruningUnitTest.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/utilities/FileTestUtilities.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/utilities/FileTestUtilities.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/utilities/ForestTestUtilities.cpp">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/test/utilities/ForestTestUtilities.h">
+			<Option target="rrcf"/>
+		</Unit>
+		<Unit filename="/home/shirvaik/CLionProjects/rrcf/core/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
