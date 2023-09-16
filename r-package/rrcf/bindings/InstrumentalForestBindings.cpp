@@ -23,7 +23,7 @@
 #include "forest/ForestTrainers.h"
 #include "RcppUtilities.h"
 
-using namespace grf;
+using namespace rrcf;
 
 // [[Rcpp::export]]
 Rcpp::List instrumental_train(const Rcpp::NumericMatrix& train_matrix,

@@ -21,7 +21,7 @@
 #include "forest/ForestOptions.h"
 #include "RcppUtilities.h"
 
-using namespace grf;
+using namespace rrcf;
 
 Rcpp::List RcppUtilities::create_forest_object(Forest& forest,
                                                const std::vector<Prediction>& predictions) {

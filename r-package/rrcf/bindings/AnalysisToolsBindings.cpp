@@ -27,7 +27,7 @@
 
 #include "RcppUtilities.h"
 
-using namespace grf;
+using namespace rrcf;
 
 // [[Rcpp::export]]
 Rcpp::NumericMatrix compute_split_frequencies(const Rcpp::List& forest_object,
