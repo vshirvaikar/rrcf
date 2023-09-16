@@ -2,7 +2,7 @@
 # Simulated MSE with the DGPs "aw2" (first rows),  "aw1" (second rows)
 # and "aw3" (last rows).
 rm(list = ls())
-library(grf)
+library(rrcf)
 
 mse.reps <- 60
 n <- c(800, 1600)

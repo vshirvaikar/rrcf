@@ -21,7 +21,7 @@
 
 #include "utility.h"
 
-namespace grf {
+namespace rrcf {
 
 void split_sequence(std::vector<uint>& result, uint start, uint end, uint num_parts) {
 

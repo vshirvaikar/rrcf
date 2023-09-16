@@ -22,7 +22,7 @@
 #include "commons/utility.h"
 #include "prediction/CausalSurvivalPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 const std::size_t CausalSurvivalPredictionStrategy::NUMERATOR = 0;
 const std::size_t CausalSurvivalPredictionStrategy::DENOMINATOR = 1;

@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 library(glmnet)
 library(hte)
 packageVersion("hte")
@@ -42,7 +42,7 @@ run_simulation = function(ns, lambdas, num.reps, version){
 
       forest = causal_forest(as.matrix(dat$X), as.numeric(dat$Y), as.numeric(dat$W), tune.parameters = "all")
       preds = predict(forest, as.matrix(dat.test$X))$predictions
-      grf.err = mean((preds - dat.test$Tau)**2)
+      rrcf.err = mean((preds - dat.test$Tau)**2)
 
       lasso.mod = cv.glmnet(as.matrix(dat$X), as.numeric(dat$Y), alpha = 1)
       selected = which(coef(lasso.mod) != 0)
@@ -56,7 +56,7 @@ run_simulation = function(ns, lambdas, num.reps, version){
       preds.llf = predict(forest, as.matrix(dat.test$X), linear.correction.variables = selected, ll.weight.penalty = TRUE)$predictions
       err.llf = mean((preds.llf - dat.test$Tau)**2)
 
-      return(c(sqrt(err), sqrt(grf.err), sqrt(err.llf)))
+      return(c(sqrt(err), sqrt(rrcf.err), sqrt(err.llf)))
     })
     basic.results = data.frame(t(basic.results))
     colMeans(basic.results)

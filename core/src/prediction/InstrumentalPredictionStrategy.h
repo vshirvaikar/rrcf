@@ -27,7 +27,7 @@
 #include "prediction/PredictionValues.h"
 #include "ObjectiveBayesDebiaser.h"
 
-namespace grf {
+namespace rrcf {
 
 class InstrumentalPredictionStrategy final: public OptimizedPredictionStrategy {
 public:

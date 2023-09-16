@@ -19,7 +19,7 @@
 
 #include "tree/Tree.h"
 
-namespace grf {
+namespace rrcf {
 
 std::unordered_map<size_t, double> SampleWeightComputer::compute_weights(size_t sample,
                                                                          const Forest& forest,

@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("probability forest works as expected", {
   p <- 5

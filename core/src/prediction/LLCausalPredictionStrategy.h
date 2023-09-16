@@ -25,7 +25,7 @@
 #include "prediction/PredictionValues.h"
 #include "ObjectiveBayesDebiaser.h"
 
-namespace grf {
+namespace rrcf {
 
 class LLCausalPredictionStrategy final: public DefaultPredictionStrategy {
 public:

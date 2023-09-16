@@ -19,7 +19,7 @@
 #include "commons/utility.h"
 #include "ObjectiveBayesDebiaser.h"
 
-namespace grf {
+namespace rrcf {
 
 double ObjectiveBayesDebiaser::debias(double var_between,
                                       double group_noise,

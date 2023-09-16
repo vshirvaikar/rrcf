@@ -18,7 +18,7 @@
 #include "commons/utility.h"
 #include "relabeling/MultiCausalRelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 MultiCausalRelabelingStrategy::MultiCausalRelabelingStrategy(size_t response_length,
                                                              const std::vector<double>& gradient_weights) {

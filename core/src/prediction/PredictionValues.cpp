@@ -17,7 +17,7 @@
 
 #include "prediction/PredictionValues.h"
 
-namespace grf {
+namespace rrcf {
 
 PredictionValues::PredictionValues():
   num_nodes(0),

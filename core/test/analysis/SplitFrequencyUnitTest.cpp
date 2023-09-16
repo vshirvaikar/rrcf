@@ -20,7 +20,7 @@
 #include "analysis/SplitFrequencyComputer.h"
 #include "forest/Forest.h"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("split frequency computation works as expected", "[analysis, unit]") {
   /*

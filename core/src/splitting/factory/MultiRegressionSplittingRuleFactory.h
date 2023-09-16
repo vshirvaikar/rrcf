@@ -21,7 +21,7 @@
 
 #include "splitting/factory/SplittingRuleFactory.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * A factory that produces standard regression splitting rules.

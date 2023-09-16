@@ -1,7 +1,7 @@
 # Check that the following code paths passes under valgrind.
 # Usage:
 # R -d "valgrind --tool=memcheck --leak-check=full" --vanilla  < test_grf_valgrind.R
-library(grf)
+library(rrcf)
 p <- 6
 n <- 750
 

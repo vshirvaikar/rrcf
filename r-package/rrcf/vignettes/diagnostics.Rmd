@@ -16,13 +16,13 @@ set.seed(123)
 ```
 
 ```{r setup}
-library(grf)
+library(rrcf)
 library(ggplot2)
 ```
 
 ## Assessing overlap
 
-Two common diagnostics to evaluate if the identifying assumptions behind grf hold is a propensity score histogram and covariance balance plot.
+Two common diagnostics to evaluate if the identifying assumptions behind rrcf hold is a propensity score histogram and covariance balance plot.
 
 ```{r}
 n <- 2000
@@ -58,13 +58,13 @@ ggplot(plot.df, aes(x = value, weight = IPW, fill = W)) +
 
 ## Assessing fit
 
-The forest summary function [test_calibration](https://grf-labs.github.io/grf/reference/test_calibration.html) can be used to asses a forest's goodness of fit. A coefficient of 1 for `mean.forest.prediction` suggests that the mean forest prediction is correct and a coefficient of 1 for `differential.forest.prediction` suggests that the forest has captured heterogeneity in the underlying signal.
+The forest summary function [test_calibration](https://rrcf-labs.github.io/rrcf/reference/test_calibration.html) can be used to asses a forest's goodness of fit. A coefficient of 1 for `mean.forest.prediction` suggests that the mean forest prediction is correct and a coefficient of 1 for `differential.forest.prediction` suggests that the forest has captured heterogeneity in the underlying signal.
 
 ```{r}
 test_calibration(cf)
 ```
 
-Another heuristic for testing for heterogeneity involves grouping observations into a high and low CATE group, then estimating average treatment effects in each subgroup. The function [average_treatment_effect](https://grf-labs.github.io/grf/reference/average_treatment_effect.html) estimates ATEs using a double robust approach:
+Another heuristic for testing for heterogeneity involves grouping observations into a high and low CATE group, then estimating average treatment effects in each subgroup. The function [average_treatment_effect](https://rrcf-labs.github.io/rrcf/reference/average_treatment_effect.html) estimates ATEs using a double robust approach:
 
 ```{r}
 tau.hat <- predict(cf)$predictions
@@ -80,7 +80,7 @@ ate.high[["estimate"]] - ate.low[["estimate"]] +
   c(-1, 1) * qnorm(0.975) * sqrt(ate.high[["std.err"]]^2 + ate.low[["std.err"]]^2)
 ```
 
-For another way to assess heterogeneity, see the function [rank_average_treatment_effect](https://grf-labs.github.io/grf/reference/rank_average_treatment_effect.html) and the accompanying [vignette](https://grf-labs.github.io/grf/articles/rate.html).
+For another way to assess heterogeneity, see the function [rank_average_treatment_effect](https://rrcf-labs.github.io/rrcf/reference/rank_average_treatment_effect.html) and the accompanying [vignette](https://rrcf-labs.github.io/rrcf/articles/rate.html).
 
 Athey et al. (2017) suggests a bias measure to gauge how much work the propensity and outcome models have to do to get an unbiased estimate, relative to looking at a simple difference-in-means: $bias(x) = (e(x) - p) \times (p(\mu(0, x) - \mu_0) + (1 - p) (\mu(1, x) - \mu_1)$.
 

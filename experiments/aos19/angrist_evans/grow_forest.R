@@ -1,6 +1,6 @@
-# This script was run with grf version 1.2.0.
+# This script was run with rrcf version 1.2.0.
 rm(list = ls())
-library(grf)
+library(rrcf)
 data = read.csv('angev80_recode_run1_line525.csv.xz')
 
 FEATURES=data.frame(data$twoa.agem,

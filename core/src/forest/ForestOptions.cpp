@@ -21,7 +21,7 @@
 #include "forest/ForestOptions.h"
 #include "tree/TreeOptions.h"
 
-namespace grf {
+namespace rrcf {
 
 ForestOptions::ForestOptions(uint num_trees,
                              size_t ci_group_size,

@@ -10,4 +10,4 @@ _This folder has replication files for the paper "Estimating Heterogeneous Treat
 
 * HIV application: `hiv.R`
 
-These scripts were run using R version 3.5. In addition to `grf` they rely on the additional packages: `"ggplot2", "randomForestSRC", "speff2trial", "texreg", "xtable"`.
+These scripts were run using R version 3.5. In addition to `rrcf` they rely on the additional packages: `"ggplot2", "randomForestSRC", "speff2trial", "texreg", "xtable"`.

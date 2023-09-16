@@ -20,7 +20,7 @@
 
 #include "forest/Forest.h"
 
-namespace grf {
+namespace rrcf {
 
 class PredictionCollector {
 public:

@@ -24,7 +24,7 @@
 #include "prediction/collector/SampleWeightComputer.h"
 #include "prediction/DefaultPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 class DefaultPredictionCollector final: public PredictionCollector {
 public:

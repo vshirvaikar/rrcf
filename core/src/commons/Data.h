@@ -25,7 +25,7 @@
 #include "globals.h"
 #include "optional/optional.hpp"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * Data wrapper for GRF.

@@ -21,7 +21,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("Kaplan-Meier survival estimates are correct", "[survival], [prediction]") {
   size_t num_failures = 24;

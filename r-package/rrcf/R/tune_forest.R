@@ -7,12 +7,12 @@
 #' @param ncol.X The number of variables.
 #' @param args The remaining call arguments for the forest.
 #' @param tune.parameters The vector of parameter names to tune.
-#' @param tune.parameters.defaults The grf default values for the vector of parameter names to tune.
+#' @param tune.parameters.defaults The rrcf default values for the vector of parameter names to tune.
 #' @param tune.num.trees The number of trees in each 'mini forest' used to fit the tuning model.
 #' @param tune.num.reps The number of forests used to fit the tuning model.
 #' @param tune.num.draws The number of random parameter values considered when using the model
 #'  to select the optimal parameters.
-#' @param train The grf forest training function.
+#' @param train The rrcf forest training function.
 #'
 #' @return tuning output
 #'

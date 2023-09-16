@@ -1,8 +1,8 @@
 rm(list = ls())
 
-setwd("~/git/grf/experiments/instrumental_stress_test")
+setwd("~/git/rrcf/experiments/instrumental_stress_test")
 
-library(grf)
+library(rrcf)
 source("../baselines.R")
 
 #

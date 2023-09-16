@@ -7,7 +7,7 @@
 get_scores(forest, ...)
 }
 \arguments{
-\item{forest}{A grf forest object}
+\item{forest}{A rrcf forest object}
 
 \item{...}{Additional arguments}
 }

@@ -2,7 +2,7 @@
 ## basic image script ##
 ########################
 
-library(grf)
+library(rrcf)
 library(glmnet)
 library(ggplot2)
 
@@ -44,7 +44,7 @@ ggplot(df, aes(ticks)) +
   geom_line(aes(y=upper),color="gray",lty=2) +
   geom_line(aes(y=lower),color="gray",lty=2) +
   xlab("x") + ylab("y") + theme_bw()
-ggsave("grf-preds.pdf")
+ggsave("rrcf-preds.pdf")
 
 ################################
 ## coverage, length, and RMSE ##
@@ -113,7 +113,7 @@ full_results = sapply(ns, function(n){
                                honesty = TRUE,
                                tune.parameters = TRUE)
     preds = predict(forest, estimate.variance = TRUE)
-    mse.grf = mean((preds$predictions - truth)**2)
+    mse.rrcf = mean((preds$predictions - truth)**2)
 
     df = data.frame(ticks = X[,1], predictions= preds$predictions,
                     upper = preds$predictions + 1.96*sqrt(preds$variance.estimates),
@@ -131,13 +131,13 @@ full_results = sapply(ns, function(n){
     percent_grf = percent_grf/n
     avg_grf = avg_grf/n
 
-    return(c(sqrt(mse.grf), sqrt(mse.llf), percent_grf, percent_llf, avg_grf, avg_llf))
+    return(c(sqrt(mse.rrcf), sqrt(mse.llf), percent_grf, percent_llf, avg_grf, avg_llf))
   })
   results = data.frame(t(results))
   round(colMeans(results),3)
 })
 full_results = data.frame(t(full_results))
-colnames(full_results) = c("rmse.grf", "rmse.llf", "percent.grf", "percent.llf", "avg.grf", "avg.llf")
+colnames(full_results) = c("rmse.rrcf", "rmse.llf", "percent.rrcf", "percent.llf", "avg.rrcf", "avg.llf")
 full_results$n = ns
 full_results
 
@@ -190,7 +190,7 @@ full_results = sapply(ns, function(n){
                                honesty = TRUE,
                                tune.parameters = TRUE)
     preds = predict(forest, estimate.variance = TRUE)
-    mse.grf = mean((preds$predictions - truth)**2)
+    mse.rrcf = mean((preds$predictions - truth)**2)
 
     df = data.frame(ticks = X[,1], predictions= preds$predictions,
                     upper = preds$predictions + 1.96*sqrt(preds$variance.estimates),
@@ -208,13 +208,13 @@ full_results = sapply(ns, function(n){
     percent_grf = percent_grf/n
     avg_grf = avg_grf/n
 
-    return(c(mse.grf, mse.llf, percent_grf, percent_llf, avg_grf, avg_llf))
+    return(c(mse.rrcf, mse.llf, percent_grf, percent_llf, avg_grf, avg_llf))
   })
   results = data.frame(t(results))
   round(colMeans(results),3)
 })
 full_results = data.frame(t(full_results))
-colnames(full_results) = c("mse.grf", "mse.llf", "percent.grf", "percent.llf", "avg.grf", "avg.llf")
+colnames(full_results) = c("mse.rrcf", "mse.llf", "percent.rrcf", "percent.llf", "avg.rrcf", "avg.llf")
 full_results$n = ns
 
 write.csv(full_results,"friedman_confidence_p20", row.names = FALSE)

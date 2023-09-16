@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 set.seed(1234)
 
@@ -13,26 +13,26 @@ test_that("local linear prediction gives reasonable estimates", {
   Y <- MU + rnorm(n)
 
   forest <- regression_forest(X, Y, num.trees = 500)
-  preds.grf.oob <- predict(forest)
+  preds.rrcf.oob <- predict(forest)
   preds.ll.oob <- predict(forest, linear.correction.variables = 1:p, ll.lambda = 0)
 
-  mse.grf.oob <- mean((preds.grf.oob$predictions - MU)^2)
+  mse.rrcf.oob <- mean((preds.rrcf.oob$predictions - MU)^2)
   mse.ll.oob <- mean((preds.ll.oob$predictions - MU)^2)
 
   expect_lt(mse.ll.oob, 1)
-  expect_lt(mse.ll.oob, mse.grf.oob / 2)
+  expect_lt(mse.ll.oob, mse.rrcf.oob / 2)
 
   X.test <- matrix(rnorm(n * p), n, p)
   MU.test <- apply(X.test, FUN = f, MARGIN = 1)
 
-  preds.grf <- predict(forest, X.test)
+  preds.rrcf <- predict(forest, X.test)
   preds.ll <- predict(forest, X.test, linear.correction.variables = 1:p, ll.lambda = 0.1)
 
-  mse.grf <- mean((preds.grf$predictions - MU.test)^2)
+  mse.rrcf <- mean((preds.rrcf$predictions - MU.test)^2)
   mse.ll <- mean((preds.ll$predictions - MU.test)^2)
 
   expect_lt(mse.ll, 1)
-  expect_lt(mse.ll, mse.grf / 1.5)
+  expect_lt(mse.ll, mse.rrcf / 1.5)
 })
 
 test_that("linear correction variables function as expected", {
@@ -291,15 +291,15 @@ test_that("local linear splits improve predictions in a simple case", {
    Y <- MU + rnorm(n)
 
    forest <- regression_forest(X, Y, num.trees = 500)
-   preds.grf.splits.oob <- predict(forest, linear.correction.variables = 1:p, ll.lambda = 0.1)
+   preds.rrcf.splits.oob <- predict(forest, linear.correction.variables = 1:p, ll.lambda = 0.1)
 
    ll.forest <- ll_regression_forest(X, Y, num.trees = 500, enable.ll.split = TRUE)
    preds.ll.splits.oob <- predict(ll.forest, linear.correction.variables = 1:p, ll.lambda = 0.1)
 
-   mse.grf.splits.oob <- mean((preds.grf.splits.oob$predictions - MU)^2)
+   mse.rrcf.splits.oob <- mean((preds.rrcf.splits.oob$predictions - MU)^2)
    mse.ll.splits.oob <- mean((preds.ll.splits.oob$predictions - MU)^2)
 
-   expect_lt(mse.ll.splits.oob / mse.grf.splits.oob, 0.9)
+   expect_lt(mse.ll.splits.oob / mse.rrcf.splits.oob, 0.9)
 })
 
 test_that("local linear split regulating works in a simple case", {

@@ -18,7 +18,7 @@
 #ifndef GRF_OBJECTBAYESDEBIASER_H
 #define GRF_OBJECTBAYESDEBIASER_H
 
-namespace grf {
+namespace rrcf {
 
 class ObjectiveBayesDebiaser {
 public:

@@ -22,7 +22,7 @@
 #include "prediction/DefaultPredictionStrategy.h"
 #include "prediction/PredictionValues.h"
 
-namespace grf {
+namespace rrcf {
 
 class SurvivalPredictionStrategy final: public DefaultPredictionStrategy {
 public:

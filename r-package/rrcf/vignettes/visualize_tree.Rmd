@@ -16,7 +16,7 @@ set.seed(123)
 ```
 
 ```{r setup}
-library(grf)
+library(rrcf)
 ```
 
 ## Visualize trees in a random forest

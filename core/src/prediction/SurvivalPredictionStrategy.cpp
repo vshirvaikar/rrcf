@@ -18,7 +18,7 @@
 #include <cmath>
 #include "prediction/SurvivalPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 const int SurvivalPredictionStrategy::KAPLAN_MEIER = 0;
 const int SurvivalPredictionStrategy::NELSON_AALEN = 1;

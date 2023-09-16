@@ -19,7 +19,7 @@
 
 #include "Eigen/Dense"
 
-namespace grf {
+namespace rrcf {
 
 MultiRegressionPredictionStrategy::MultiRegressionPredictionStrategy(size_t num_outcomes) {
   this->num_outcomes = num_outcomes;

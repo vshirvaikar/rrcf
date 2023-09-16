@@ -24,7 +24,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("causal survival forests give positive variance estimates", "[causal survival]") {
   auto data_vec = load_data("test/forest/resources/causal_survival_data.csv");

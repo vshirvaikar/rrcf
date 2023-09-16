@@ -24,7 +24,7 @@
 #include "relabeling/RelabelingStrategy.h"
 #include "tree/Tree.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * This relabeling strategy is a multi-treatment extension of {@link InstrumentalRelabelingStrategy}.

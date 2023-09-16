@@ -18,7 +18,7 @@
 #include "splitting/factory/InstrumentalSplittingRuleFactory.h"
 #include "splitting/InstrumentalSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 std::unique_ptr<SplittingRule> InstrumentalSplittingRuleFactory::create(size_t max_num_unique_values,
                                                                         const TreeOptions& options) const {

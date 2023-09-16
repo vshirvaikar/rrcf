@@ -35,7 +35,7 @@
 #include <thread>
 #include <future>
 
-namespace grf {
+namespace rrcf {
 
 class ForestPredictor {
 public:

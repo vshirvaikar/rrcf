@@ -24,7 +24,7 @@
 #include "commons/globals.h"
 #include "splitting/SplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 class ProbabilitySplittingRule final: public SplittingRule {
 public:

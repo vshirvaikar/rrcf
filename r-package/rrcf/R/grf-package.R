@@ -5,11 +5,11 @@
 #'
 #' Some helpful links for getting started:
 #'
-#' * The R package documentation contains usage examples and method reference (\url{https://grf-labs.github.io/grf/}).
+#' * The R package documentation contains usage examples and method reference (\url{https://rrcf-labs.github.io/rrcf/}).
 #'
-#' * The GRF reference gives a detailed description of the GRF algorithm and includes troubleshooting suggestions (\url{https://grf-labs.github.io/grf/REFERENCE.html}).
+#' * The GRF reference gives a detailed description of the GRF algorithm and includes troubleshooting suggestions (\url{https://rrcf-labs.github.io/rrcf/REFERENCE.html}).
 #'
-#' * For community questions and answers around usage, see Github issues labelled 'question' (\url{https://github.com/grf-labs/grf/issues?q=label\%3Aquestion}).
+#' * For community questions and answers around usage, see Github issues labelled 'question' (\url{https://github.com/rrcf-labs/rrcf/issues?q=label\%3Aquestion}).
 #'
 #' @examples
 #' \donttest{
@@ -97,7 +97,7 @@
 #' paste("AUTOC:", round(rate$estimate, 2), "+/", round(1.96 * rate$std.err, 2))
 #' }
 #'
-#' @useDynLib grf
+#' @useDynLib rrcf
 #' @importFrom Rcpp evalCpp
 #' @importFrom Matrix Matrix
 #' @importFrom stats coef lm median predict sd var weighted.mean

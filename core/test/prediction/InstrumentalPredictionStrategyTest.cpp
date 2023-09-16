@@ -21,7 +21,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("flipping signs of treatment flips predictions", "[instrumental, prediction]") {
 //  outcomes: {-9.99984, -7.36924, 5.11211, -0.826997, 0.655345,

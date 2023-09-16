@@ -22,7 +22,7 @@
 #include "splitting/SplittingRule.h"
 #include "Eigen/Dense"
 
-namespace grf {
+namespace rrcf {
 
 class InstrumentalSplittingRule final: public SplittingRule {
 public:

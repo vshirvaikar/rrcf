@@ -7,14 +7,14 @@ They are copies of `random` and `algorithm` headers from the [llvm](https://gith
 
 ## Motivation
 
-Users complained about stability of random numbers across machines when setting seed across different platforms. See issue [#379](https://github.com/grf-labs/grf/issues/379).
+Users complained about stability of random numbers across machines when setting seed across different platforms. See issue [#379](https://github.com/rrcf-labs/rrcf/issues/379).
 
-As [pointed out](https://github.com/grf-labs/grf/issues/379#issuecomment-480641123) by @jtibshirani:
+As [pointed out](https://github.com/rrcf-labs/rrcf/issues/379#issuecomment-480641123) by @jtibshirani:
 
 > the mersenne twister has the same implementation across platforms, the other random methods may differ from compiler to compiler
 
 
-In PR [#469](https://github.com/grf-labs/grf/pull/469), @halflearned included this reduced copy of the relevant headers, ensuring random number generation is done in a consistent way across compilers.
+In PR [#469](https://github.com/rrcf-labs/rrcf/pull/469), @halflearned included this reduced copy of the relevant headers, ensuring random number generation is done in a consistent way across compilers.
 
 
 ## How to reproduce

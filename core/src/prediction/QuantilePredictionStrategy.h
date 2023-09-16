@@ -25,7 +25,7 @@
 #include "prediction/DefaultPredictionStrategy.h"
 #include "prediction/PredictionValues.h"
 
-namespace grf {
+namespace rrcf {
 
 class QuantilePredictionStrategy final: public DefaultPredictionStrategy {
 public:

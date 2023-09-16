@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("single treatment multi_arm_causal_forest is similar to causal_forest", {
   # It is not possible to check this parity holds exactly since forest differences

@@ -23,7 +23,7 @@
 #include "Eigen/Dense"
 #include "commons/Data.h"
 
-namespace grf {
+namespace rrcf {
 
 class SplittingRule {
 public:

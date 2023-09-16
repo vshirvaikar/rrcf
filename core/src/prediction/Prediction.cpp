@@ -17,7 +17,7 @@
 
 #include "prediction/Prediction.h"
 
-namespace grf {
+namespace rrcf {
 
 Prediction::Prediction(const std::vector<double>& predictions):
   predictions(predictions),

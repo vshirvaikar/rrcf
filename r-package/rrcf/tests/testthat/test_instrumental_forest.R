@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("instrumental forests give reasonable estimates", {
   p <- 6

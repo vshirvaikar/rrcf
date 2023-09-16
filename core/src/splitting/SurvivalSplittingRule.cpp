@@ -19,7 +19,7 @@
 
 #include "SurvivalSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 SurvivalSplittingRule::SurvivalSplittingRule(double alpha):
     alpha(alpha) {

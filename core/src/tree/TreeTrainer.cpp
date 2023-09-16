@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "tree/TreeTrainer.h"
 
-namespace grf {
+namespace rrcf {
 
 TreeTrainer::TreeTrainer(std::unique_ptr<RelabelingStrategy> relabeling_strategy,
                          std::unique_ptr<SplittingRuleFactory> splitting_rule_factory,

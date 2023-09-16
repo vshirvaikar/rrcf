@@ -3,7 +3,7 @@
 # To reproduce bottom panel of Figure 1 in paper set `dgp = "type3"`
 
 rm(list = ls())
-library(grf)
+library(rrcf)
 library(randomForestSRC)
 library(ggplot2)
 set.seed(123)

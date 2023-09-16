@@ -24,7 +24,7 @@
 
 #include "commons/globals.h"
 
-namespace grf {
+namespace rrcf {
 
 class SamplingOptions {
 public:

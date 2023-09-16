@@ -21,7 +21,7 @@
 
 #include "splitting/factory/SplittingRuleFactory.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * An factory that produces splitting rules specialized

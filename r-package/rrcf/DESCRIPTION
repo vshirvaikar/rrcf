@@ -12,7 +12,7 @@ Authors@R: c(
     person("Stefan", "Wager", role = "aut"),
     person("Marvin", "Wright", role = "ctb")
     )
-BugReports: https://github.com/grf-labs/grf/issues
+BugReports: https://github.com/rrcf-labs/rrcf/issues
 Description: Forest-based statistical estimation and inference.
   GRF provides non-parametric methods for heterogeneous treatment effects estimation
   (optionally using right-censored outcomes, multiple treatment arms or outcomes, or instrumental variables),
@@ -37,5 +37,5 @@ Suggests:
     survival (>= 3.2-8),
     testthat (>= 3.0.4)
 SystemRequirements: GNU make
-URL: https://github.com/grf-labs/grf
+URL: https://github.com/rrcf-labs/rrcf
 Encoding: UTF-8

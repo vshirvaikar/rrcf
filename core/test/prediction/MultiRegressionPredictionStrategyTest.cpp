@@ -22,7 +22,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("multi regression predictions with one outcome is identical to regression predictions", "[multi_regression, prediction]") {
   auto data_vec = load_data("test/forest/resources/regression_data_MIA.csv");

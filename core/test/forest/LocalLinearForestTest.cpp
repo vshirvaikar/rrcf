@@ -21,7 +21,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("LLF gives reasonable prediction on friedman data", "[local linear], [forest]") {
   auto data_vec = load_data("test/forest/resources/friedman.csv");

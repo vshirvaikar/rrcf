@@ -19,7 +19,7 @@
 
 #include "MultiCausalSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 MultiCausalSplittingRule::MultiCausalSplittingRule(size_t max_num_unique_values,
                                                    uint min_node_size,

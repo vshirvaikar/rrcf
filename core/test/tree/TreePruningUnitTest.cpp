@@ -18,7 +18,7 @@
 #include "catch.hpp"
 #include "tree/Tree.h"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("pruning behaves as expected", "[tree, unit]") {
   /*

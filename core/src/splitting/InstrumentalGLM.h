@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "Eigen/Dense"
 
-namespace grf {
+namespace rrcf {
 
     class InstrumentalGLM final{
     public:

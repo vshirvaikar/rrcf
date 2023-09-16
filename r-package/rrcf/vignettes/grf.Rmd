@@ -1,8 +1,8 @@
 ---
-title: "Introduction to grf"
+title: "Introduction to rrcf"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{grf}
+  %\VignetteIndexEntry{rrcf}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,11 +16,11 @@ set.seed(123)
 ```
 
 ```{r setup}
-library(grf)
+library(rrcf)
 ```
 
 The following script demonstrates how to use GRF for heterogeneous treatment effect estimation. For examples
-of how to use other types of forests, please consult the R [documentation](https://grf-labs.github.io/grf/reference/index.html) on the relevant methods.
+of how to use other types of forests, please consult the R [documentation](https://rrcf-labs.github.io/rrcf/reference/index.html) on the relevant methods.
 
 Generate data and train a causal forest
 ```{r}

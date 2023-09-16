@@ -22,7 +22,7 @@
 #include "prediction/collector/DefaultPredictionCollector.h"
 #include "commons/utility.h"
 
-namespace grf {
+namespace rrcf {
 
 ForestPredictor::ForestPredictor(uint num_threads,
                                  std::unique_ptr<DefaultPredictionStrategy> strategy) :

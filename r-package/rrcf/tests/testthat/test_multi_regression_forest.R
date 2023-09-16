@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("multi_regression_forest works as expected", {
   n <- 500

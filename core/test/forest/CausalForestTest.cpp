@@ -24,7 +24,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("causal GLM forests are functional", "[causal, forest]") {
     size_t weight_index = 7;

@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("quantile forests have reasonable split frequencies", {
   p <- 10

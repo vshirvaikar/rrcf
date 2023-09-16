@@ -23,7 +23,7 @@
 #include "prediction/PredictionValues.h"
 #include "ObjectiveBayesDebiaser.h"
 
-namespace grf {
+namespace rrcf {
 
 class MultiRegressionPredictionStrategy final: public OptimizedPredictionStrategy {
 public:

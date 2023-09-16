@@ -26,7 +26,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 // Splitting rule input setup to emulate one run of node zero (all data) splitting on all features
 // returning a vector containing the best split variable, best split value, and missing direction.

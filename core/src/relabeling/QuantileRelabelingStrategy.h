@@ -22,7 +22,7 @@
 #include "tree/Tree.h"
 #include "relabeling/RelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 class QuantileRelabelingStrategy final: public RelabelingStrategy {
 public:

@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 library(testthat)
 set.seed(1234)

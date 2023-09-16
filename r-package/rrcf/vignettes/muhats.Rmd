@@ -16,18 +16,18 @@ set.seed(123)
 ```
 
 ```{r setup}
-library(grf)
+library(rrcf)
 ```
 
 ## Conditional means and average treatment estimates
 
-grf computes average treatments effects based on a double robust correction (giving rise to an augmented inverse-propensity weighted average treatment effect). For a causal forest with binary treatment the exact expression is  (equation (8) of Athey and Wager, 2019):
+rrcf computes average treatments effects based on a double robust correction (giving rise to an augmented inverse-propensity weighted average treatment effect). For a causal forest with binary treatment the exact expression is  (equation (8) of Athey and Wager, 2019):
 
 $\hat \Gamma_i = \hat \tau^{(-i)}(X_i) + \frac{W_i - \hat e^{(-i)}(X_i)}{\hat e^{(-i)}(X_i)[1 - \hat e^{(-i)}(X_i)]} [Y_i - \hat \mu^{(-i)}(X_i, W_i)]$
 
 where:
 
-1. $\hat \tau^{(-i)}(X_i)$ is the treatment effect estimate (returned by grf's `predict` method). Using the potential outcomes notation this is by definition $E[Y_i(1) - Y_i(0) | X_i] = \mu(X_i, 0) - \mu(X_i, 1)$.
+1. $\hat \tau^{(-i)}(X_i)$ is the treatment effect estimate (returned by rrcf's `predict` method). Using the potential outcomes notation this is by definition $E[Y_i(1) - Y_i(0) | X_i] = \mu(X_i, 0) - \mu(X_i, 1)$.
 
 2. $W_i$ is the binary treatment indicator for subject $i$.
 

@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 set.seed(123)
 
@@ -133,8 +133,8 @@ test_that("LL causal CIs are shorter than standard causal CIS", {
    vars <- tau.hat$variance.estimates
    lowers <- preds - 1.96 * sqrt(vars)
    uppers <- preds + 1.96 * sqrt(vars)
-   coverage.grf <- mean(lowers <= TAU & TAU <= uppers)
-   length.grf <- mean(abs(uppers - lowers))
+   coverage.rrcf <- mean(lowers <= TAU & TAU <= uppers)
+   length.rrcf <- mean(abs(uppers - lowers))
 
    preds.ll <- tau.hat.ll$predictions
    vars.ll <- tau.hat.ll$variance.estimates
@@ -143,6 +143,6 @@ test_that("LL causal CIs are shorter than standard causal CIS", {
    coverage.ll <- mean(lowers.ll <= TAU & TAU <= uppers.ll)
    length.ll <- mean(abs(uppers.ll - lowers.ll))
 
-   expect_lt(coverage.grf / coverage.ll, 1)
-   expect_lt(length.ll / length.grf, 0.8)
+   expect_lt(coverage.rrcf / coverage.ll, 1)
+   expect_lt(length.ll / length.rrcf, 0.8)
 })

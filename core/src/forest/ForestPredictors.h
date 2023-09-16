@@ -20,7 +20,7 @@
 
 #include "forest/ForestPredictor.h"
 
-namespace grf {
+namespace rrcf {
 
 ForestPredictor instrumental_predictor(uint num_threads);
 

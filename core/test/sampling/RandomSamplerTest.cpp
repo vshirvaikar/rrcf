@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "sampling/RandomSampler.h"
 
-using namespace grf;
+using namespace rrcf;
 
 size_t absolute_difference(size_t first, size_t second) {
   return first >= second ? first - second : second - first;

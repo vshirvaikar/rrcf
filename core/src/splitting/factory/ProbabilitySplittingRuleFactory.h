@@ -23,7 +23,7 @@
 #include "commons/globals.h"
 #include "splitting/factory/SplittingRuleFactory.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * A factory that produces standard classification splitting rules.

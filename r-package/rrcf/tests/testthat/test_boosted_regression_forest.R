@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("Boosted regression forest improves performance vs regular forest", {
   n <- 750

@@ -26,7 +26,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("forests don't crash when there are fewer trees than threads", "[forest]") {
   ForestTrainer trainer = regression_trainer();

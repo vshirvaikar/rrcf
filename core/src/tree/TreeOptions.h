@@ -20,7 +20,7 @@
 
 #include "commons/globals.h"
 
-namespace grf {
+namespace rrcf {
 
 class TreeOptions {
 public:

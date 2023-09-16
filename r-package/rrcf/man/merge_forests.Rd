@@ -8,7 +8,7 @@ merge_forests(forest_list, compute.oob.predictions = TRUE)
 }
 \arguments{
 \item{forest_list}{A `list` of forests to be concatenated.
-All forests must be of the same type, and the type must be a subclass of `grf`.
+All forests must be of the same type, and the type must be a subclass of `rrcf`.
 In addition, all forests must have the same 'ci.group.size'.
 Other tuning parameters (e.g. alpha, mtry, min.node.size, imbalance.penalty) are
 allowed to differ across forests.}

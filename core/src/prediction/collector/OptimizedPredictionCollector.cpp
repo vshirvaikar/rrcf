@@ -21,7 +21,7 @@
 #include "prediction/collector/OptimizedPredictionCollector.h"
 #include "commons/utility.h"
 
-namespace grf {
+namespace rrcf {
 
 OptimizedPredictionCollector::OptimizedPredictionCollector(std::unique_ptr<OptimizedPredictionStrategy> strategy, uint num_threads):
     strategy(std::move(strategy)), num_threads(num_threads) {}

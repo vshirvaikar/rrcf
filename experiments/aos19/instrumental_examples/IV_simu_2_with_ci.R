@@ -2,9 +2,9 @@ set.seed(2)
 
 rm(list = ls())
 
-setwd("~/git/grf/experiments/instrumental_examples")
+setwd("~/git/rrcf/experiments/instrumental_examples")
 
-library(grf)
+library(rrcf)
 p = 20
 n = 4000
 num.trees = 10000

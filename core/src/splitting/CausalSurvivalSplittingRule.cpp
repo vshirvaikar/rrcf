@@ -20,7 +20,7 @@
 
 #include "CausalSurvivalSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 CausalSurvivalSplittingRule::CausalSurvivalSplittingRule(size_t max_num_unique_values,
                                                          uint min_node_size,

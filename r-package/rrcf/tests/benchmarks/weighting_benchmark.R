@@ -1,7 +1,7 @@
-# grf weighting benchmark script
+# rrcf weighting benchmark script
 # this script benchmarks statistical performance
 # for sample weighted causal forest and rank average treatment effect
-library(grf)
+library(rrcf)
 set.seed(1)
 
 n <- 40000

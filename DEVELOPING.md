@@ -1,8 +1,8 @@
 # Developing
 
-<img src='https://raw.githubusercontent.com/grf-labs/grf/master/images/logo/grf_logo_wbg_cropped.png' align="right" height="120" />
+<img src='https://raw.githubusercontent.com/rrcf-labs/rrcf/master/images/logo/grf_logo_wbg_cropped.png' align="right" height="120" />
 
-In addition to providing out-of-the-box forests for quantile regression and instrumental variables, grf provides a framework for creating forests tailored to new statistical tasks. Certain components around splitting and prediction can be swapped out, within the general infrastructure for growing and predicting on trees.
+In addition to providing out-of-the-box forests for quantile regression and instrumental variables, rrcf provides a framework for creating forests tailored to new statistical tasks. Certain components around splitting and prediction can be swapped out, within the general infrastructure for growing and predicting on trees.
 
 ## Table of Contents
 * [Contributing](#contributing)
@@ -32,32 +32,32 @@ The core forest implementation is written in C++, with an R interface powered by
 
 To build the R package from source, cd into `r-package` and run `build_package.R`. Required development dependencies are listed there. This mimics the tests run when submitting a pull request. Additional online package documentation is built using continuous integration with [pkgdown](https://pkgdown.r-lib.org/). Usage examples in the form of R Markdown files under _grf\vignettes_ are built and rendered and the R method reference (along with the package articles) is displayed according to the layout defined in _pkgdown.yml_. To build the site locally run `pkgdown::build_site()` from the R package directory.
 
-An alternative development workflow is to use the accompanying grf.Rproj and build and test the package with RStudio's build menu, which can be convenient for quickly iterating C++/R code changes. Compiling the package locally with `PKG_CPPFLAGS="-UNDEBUG"` (or set in `~/.R/Makevars`) may give helpful debug assertions, as the Eigen library will then perform bounds checks on matrix algebra.
+An alternative development workflow is to use the accompanying rrcf.Rproj and build and test the package with RStudio's build menu, which can be convenient for quickly iterating C++/R code changes. Compiling the package locally with `PKG_CPPFLAGS="-UNDEBUG"` (or set in `~/.R/Makevars`) may give helpful debug assertions, as the Eigen library will then perform bounds checks on matrix algebra.
 
 ### Note for Windows users:
 
-Symlinks in the src directory point to the core C++ and R bindings. On Windows one has to clone this repository with symlinks enabled: `git clone -c core.symlinks=true https://github.com/grf-labs/grf.git` (this command may have to be run as an administrator if the account does not have permission to create symlinks). Caveat: the above RStudio workflow is not tested on Windows.
+Symlinks in the src directory point to the core C++ and R bindings. On Windows one has to clone this repository with symlinks enabled: `git clone -c core.symlinks=true https://github.com/rrcf-labs/rrcf.git` (this command may have to be run as an administrator if the account does not have permission to create symlinks). Caveat: the above RStudio workflow is not tested on Windows.
 
 ## Core C++
 
 ### Code structure
 
-![GRF Architecture Diagram](https://raw.githubusercontent.com/grf-labs/grf/master/images/arch_diagram.png)
+![GRF Architecture Diagram](https://raw.githubusercontent.com/rrcf-labs/rrcf/master/images/arch_diagram.png)
 
-The forest implementation is composed of two top-level components, [ForestTrainer](https://github.com/grf-labs/grf/blob/master/core/src/forest/ForestTrainer.h) and [ForestPredictor](https://github.com/grf-labs/grf/blob/master/core/src/forest/ForestPredictor.h).
+The forest implementation is composed of two top-level components, [ForestTrainer](https://github.com/rrcf-labs/rrcf/blob/master/core/src/forest/ForestTrainer.h) and [ForestPredictor](https://github.com/rrcf-labs/rrcf/blob/master/core/src/forest/ForestPredictor.h).
 
 ForestTrainer drives the tree-growing process, and has two pluggable components.
-* [RelabelingStrategy](https://github.com/grf-labs/grf/blob/master/core/src/relabeling/RelabelingStrategy.h) is applied before every split, and produces a set of relabelled outcomes given the observations for a group of samples. In the case of quantile forests, for example, this strategy computes the quantiles for the group of samples, then relabels them with a factor corresponding to the quantile they belong to.
-* [SplittingRule](https://github.com/grf-labs/grf/blob/master/core/src/splitting/SplittingRule.h) is called to find the best split for a particular node, given a set of outcomes. There are currently implementations for standard regression and multinomial splitting.
+* [RelabelingStrategy](https://github.com/rrcf-labs/rrcf/blob/master/core/src/relabeling/RelabelingStrategy.h) is applied before every split, and produces a set of relabelled outcomes given the observations for a group of samples. In the case of quantile forests, for example, this strategy computes the quantiles for the group of samples, then relabels them with a factor corresponding to the quantile they belong to.
+* [SplittingRule](https://github.com/rrcf-labs/rrcf/blob/master/core/src/splitting/SplittingRule.h) is called to find the best split for a particular node, given a set of outcomes. There are currently implementations for standard regression and multinomial splitting.
 
-The trained forest produces a [Forest](https://github.com/grf-labs/grf/blob/master/core/src/forest/Forest.h) object. This can then be passed to the ForestPredictor to predict on test samples. The predictor has a pluggable 'prediction strategy', which computes a prediction given a test sample. Prediction strategies can be one of two types:
-* [DefaultPredictionStrategy](https://github.com/grf-labs/grf/blob/master/core/src/prediction/DefaultPredictionStrategy.h) computes a prediction given a weighted list of training sample IDs that share a leaf with the test sample. Taking quantile forests as an example, this strategy would compute the quantiles of the weighted leaf samples.
-* [OptimizedPredictionStrategy](https://github.com/grf-labs/grf/blob/master/core/src/prediction/OptimizedPredictionStrategy.h) does not predict using a list of neighboring samples and weights, but instead precomputes summary values for each leaf during training, and uses these during prediction. This type of strategy will also be passed to ForestTrainer, so it can define how the summary values are computed. The section on computing point predictions provides more details.
+The trained forest produces a [Forest](https://github.com/rrcf-labs/rrcf/blob/master/core/src/forest/Forest.h) object. This can then be passed to the ForestPredictor to predict on test samples. The predictor has a pluggable 'prediction strategy', which computes a prediction given a test sample. Prediction strategies can be one of two types:
+* [DefaultPredictionStrategy](https://github.com/rrcf-labs/rrcf/blob/master/core/src/prediction/DefaultPredictionStrategy.h) computes a prediction given a weighted list of training sample IDs that share a leaf with the test sample. Taking quantile forests as an example, this strategy would compute the quantiles of the weighted leaf samples.
+* [OptimizedPredictionStrategy](https://github.com/rrcf-labs/rrcf/blob/master/core/src/prediction/OptimizedPredictionStrategy.h) does not predict using a list of neighboring samples and weights, but instead precomputes summary values for each leaf during training, and uses these during prediction. This type of strategy will also be passed to ForestTrainer, so it can define how the summary values are computed. The section on computing point predictions provides more details.
 
 Prediction strategies can also compute variance estimates for the predictions, given a forest trained with grouped trees. Because of performance constraints, only 'optimized' prediction strategies can provide variance estimates.
 
 A particular type of forest is created by pulling together a set of pluggable components. As an example, a quantile forest is composed of a QuantileRelabelingStrategy, ProbabilitySplittingRule, and QuantilePredictionStrategy.
-The factory classes [ForestTrainers](https://github.com/grf-labs/grf/blob/master/core/src/forest/ForestTrainers.h) and [ForestPredictors](https://github.com/grf-labs/grf/blob/master/core/src/forest/ForestPredictors.h) define the common types of forests like regression, quantile, and causal forests.
+The factory classes [ForestTrainers](https://github.com/rrcf-labs/rrcf/blob/master/core/src/forest/ForestTrainers.h) and [ForestPredictors](https://github.com/rrcf-labs/rrcf/blob/master/core/src/forest/ForestPredictors.h) define the common types of forests like regression, quantile, and causal forests.
 
 ### Creating a custom forest
 
@@ -88,9 +88,9 @@ The following table shows the current collection of forests implemented and the 
 
 The follow section outlines pseudocode for some of the components listed above.
 
-Each splitting rule follow the same pattern: given a set of samples, and a possible split variable, iterate over all the split points for that variable and compute an error criterion on both sides of the split, then select the split where the decrease in the summed error criterion is smallest. For `RegressionSplittingRule` the criterion is the mean squared error, and is usually referred to as standard CART splitting. `InstrumentalSplittingRule` use the same error criterion, but it incorporates more constraints on potential splits, such as requiring a certain number of treated and control observations (more details are in the [Algorithm Reference](https://grf-labs.github.io/grf/REFERENCE.html)).
+Each splitting rule follow the same pattern: given a set of samples, and a possible split variable, iterate over all the split points for that variable and compute an error criterion on both sides of the split, then select the split where the decrease in the summed error criterion is smallest. For `RegressionSplittingRule` the criterion is the mean squared error, and is usually referred to as standard CART splitting. `InstrumentalSplittingRule` use the same error criterion, but it incorporates more constraints on potential splits, such as requiring a certain number of treated and control observations (more details are in the [Algorithm Reference](https://rrcf-labs.github.io/rrcf/REFERENCE.html)).
 
-Two added features to grf's splitting rule beyond basic CART is the addition of sample weights and support for missing values with Missingness Incorporated in Attributes (MIA) splitting. The algebra behind the decrease calculation is detailed below.
+Two added features to rrcf's splitting rule beyond basic CART is the addition of sample weights and support for missing values with Missingness Incorporated in Attributes (MIA) splitting. The algebra behind the decrease calculation is detailed below.
 
 ***Algorithm*** (`RegressionSplittingRule`): find the best split for variable `var` at n samples `samples = i...j`
 
@@ -168,7 +168,7 @@ _Input_: `X`: covariate matrix, `response`: the failure times, `min_child_size`:
 
 _Output_: The best split value and the direction to send missing values
 
-grf performs survival splits by finding the partition that maximizes the [log-rank](https://en.wikipedia.org/wiki/Logrank_test) test for the comparison of the survival distribution in the left and right node. The statistic is:
+rrcf performs survival splits by finding the partition that maximizes the [log-rank](https://en.wikipedia.org/wiki/Logrank_test) test for the comparison of the survival distribution in the left and right node. The statistic is:
 
 ```
 logrank(x, split.value) =  sum over all times k up to m

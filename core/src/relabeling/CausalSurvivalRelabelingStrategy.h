@@ -23,7 +23,7 @@
 #include "commons/Data.h"
 #include "relabeling/RelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 class CausalSurvivalRelabelingStrategy final: public RelabelingStrategy {
 public:

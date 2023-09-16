@@ -21,7 +21,7 @@
 #include <cstddef>
 #include <vector>
 
-namespace grf {
+namespace rrcf {
 
 class PredictionValues {
 public:

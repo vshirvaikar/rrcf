@@ -17,7 +17,7 @@ library(ggplot2)
 ```
 
 ```{r setup}
-library(grf)
+library(rrcf)
 ```
 
 This vignette gives a brief overview of how to use GRF to estimate average treatment effects (ATEs) on a new target population defined by some covariates $X_{test}$. The first part gives a brief overview of the setup and a doubly robust estimator, the second part gives a code example of how to implement the estimator using GRF.
@@ -73,7 +73,7 @@ A doubly robust estimate of the ATE on the target population is:
 \end{split}
 \end{equation}
 
-This is equation (4) in Dahabreh et al. (2020) written on contrast form. All the quantities needed for this estimator are easily obtained with GRF. The main difference from the traditional doubly robust ATE estimator among trial participants is the presence of the transport probabilities $\hat p^{(-i)}(X_i)$, which makes an appearance as an inverse odds term. The quantity $\mu^{(-i)}(X_i, W_i)$ can be constructed from a causal forest fit, see [this vignette](https://grf-labs.github.io/grf/articles/muhats.html) for details. We can also use this construction for standard error estimates. In general doubly robust estimators respect an oracle property w.r.t the nuisance components, meaning we can use plug-in estimates in place of the true values and retain some first-order equivalence and compute the variance of this expression directly (which in this case reduces to a sum of two independent terms).
+This is equation (4) in Dahabreh et al. (2020) written on contrast form. All the quantities needed for this estimator are easily obtained with GRF. The main difference from the traditional doubly robust ATE estimator among trial participants is the presence of the transport probabilities $\hat p^{(-i)}(X_i)$, which makes an appearance as an inverse odds term. The quantity $\mu^{(-i)}(X_i, W_i)$ can be constructed from a causal forest fit, see [this vignette](https://rrcf-labs.github.io/rrcf/articles/muhats.html) for details. We can also use this construction for standard error estimates. In general doubly robust estimators respect an oracle property w.r.t the nuisance components, meaning we can use plug-in estimates in place of the true values and retain some first-order equivalence and compute the variance of this expression directly (which in this case reduces to a sum of two independent terms).
 
 ## Algorithm
 The following function implements this estimator, taking as argument an ordinary causal forest (or causal survival forest) trained with a binary treatment.

@@ -37,7 +37,7 @@
 #'                      Default is 5.
 #' @param honesty Whether to use honest splitting (i.e., sub-sample splitting). Default is TRUE.
 #'  For a detailed description of honesty, honesty.fraction, honesty.prune.leaves, and recommendations for
-#'  parameter tuning, see the grf algorithm reference.
+#'  parameter tuning, see the rrcf algorithm reference.
 #' @param honesty.fraction The fraction of data that will be used for determining splits if honesty = TRUE. Corresponds
 #'                         to set J1 in the notation of the paper. Default is 0.5 (i.e. half of the data is used for
 #'                         determining splits).
@@ -196,7 +196,7 @@ ll_regression_forest <- function(X, Y,
     forest <- do.call.rcpp(regression_train, c(data, args))
   }
 
-  class(forest) <- c("ll_regression_forest", "grf")
+  class(forest) <- c("ll_regression_forest", "rrcf")
   forest[["seed"]] <- seed
   forest[["ci.group.size"]] <- ci.group.size
   forest[["X.orig"]] <- X

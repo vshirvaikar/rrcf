@@ -24,7 +24,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 // Splitting rule input setup to emulate one run of node zero (all data) splitting on all features
 // returning a vector of the best logrank statistic for each feature.

@@ -18,7 +18,7 @@
 #include "splitting/factory/RegressionSplittingRuleFactory.h"
 #include "splitting/RegressionSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 std::unique_ptr<SplittingRule> RegressionSplittingRuleFactory::create(size_t max_num_unique_values,
                                                                       const TreeOptions& options) const {

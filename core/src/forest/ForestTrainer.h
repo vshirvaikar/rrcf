@@ -29,7 +29,7 @@
 #include "forest/Forest.h"
 #include "ForestOptions.h"
 
-namespace grf {
+namespace rrcf {
 
 class ForestTrainer {
 public:

@@ -22,7 +22,7 @@
 #include "commons/utility.h"
 #include "prediction/MultiCausalPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 MultiCausalPredictionStrategy::MultiCausalPredictionStrategy(size_t num_treatments,
                                                              size_t num_outcomes) {

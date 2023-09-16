@@ -1,6 +1,6 @@
 #' Compute doubly robust scores for a GRF forest object
 #'
-#' @param forest A grf forest object
+#' @param forest A rrcf forest object
 #' @param ... Additional arguments
 #' @return A vector of scores
 #' @export

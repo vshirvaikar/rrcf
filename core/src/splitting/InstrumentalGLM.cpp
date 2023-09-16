@@ -19,7 +19,7 @@
 #include <cmath>
 #include "InstrumentalGLM.h"
 
-namespace grf {
+namespace rrcf {
 
 InstrumentalGLM::InstrumentalGLM(size_t dummy){ // constructor
     this->counter = new size_t[dummy];

@@ -21,7 +21,7 @@
 
 #include "splitting/factory/SplittingRuleFactory.h"
 
-namespace grf {
+namespace rrcf {
 
 class CausalSurvivalSplittingRuleFactory final: public SplittingRuleFactory {
 public:

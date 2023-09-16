@@ -1,4 +1,4 @@
-# dgps.R - convenience script for generating simulation data for grf.
+# dgps.R - convenience script for generating simulation data for rrcf.
 
 #' Generate causal forest data
 #'

@@ -37,7 +37,7 @@
 #include "splitting/factory/SurvivalSplittingRuleFactory.h"
 #include "splitting/factory/CausalSurvivalSplittingRuleFactory.h"
 
-namespace grf {
+namespace rrcf {
 
 ForestTrainer instrumental_trainer(double reduced_form_weight,
                                    bool stabilize_splits) {

@@ -23,7 +23,7 @@
 
 #include "Data.h"
 
-namespace grf {
+namespace rrcf {
 
 Data::Data(const double* data_ptr, size_t num_rows, size_t num_cols) {
   if (data_ptr == nullptr) {

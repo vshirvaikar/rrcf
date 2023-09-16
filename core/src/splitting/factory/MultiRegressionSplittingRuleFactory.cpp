@@ -18,7 +18,7 @@
 #include "splitting/factory/MultiRegressionSplittingRuleFactory.h"
 #include "splitting/MultiRegressionSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 MultiRegressionSplittingRuleFactory::MultiRegressionSplittingRuleFactory(size_t num_outcomes):
   num_outcomes(num_outcomes) {}

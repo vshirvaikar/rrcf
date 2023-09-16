@@ -19,7 +19,7 @@
 
 #include "RegressionSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 RegressionSplittingRule::RegressionSplittingRule(size_t max_num_unique_values,
                                                  double alpha,

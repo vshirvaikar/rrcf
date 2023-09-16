@@ -26,7 +26,7 @@
 #include "prediction/Prediction.h"
 #include "prediction/PredictionValues.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * A prediction strategy defines how predictions are computed over test samples.

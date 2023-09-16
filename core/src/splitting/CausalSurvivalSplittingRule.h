@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "splitting/SplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * This splitting rule is identical to {@link InstrumentalSplittingRule} with the

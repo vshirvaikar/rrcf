@@ -18,7 +18,7 @@
 #include "splitting/factory/CausalSurvivalSplittingRuleFactory.h"
 #include "splitting/CausalSurvivalSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 std::unique_ptr<SplittingRule> CausalSurvivalSplittingRuleFactory::create(size_t max_num_unique_values,
                                                                         const TreeOptions& options) const {

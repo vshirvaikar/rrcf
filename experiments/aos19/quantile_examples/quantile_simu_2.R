@@ -2,10 +2,10 @@ set.seed(1234)
 
 rm(list = ls())
 
-setwd("~/git/grf/experiments/quantile_examples")
+setwd("~/git/rrcf/experiments/quantile_examples")
 
 library(quantregForest)
-library(grf)
+library(rrcf)
 
 p = 40
 n = 2000

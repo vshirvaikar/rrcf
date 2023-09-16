@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "prediction/LocalLinearPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 LocalLinearPredictionStrategy::LocalLinearPredictionStrategy(std::vector<double> lambdas,
                                                              bool weight_penalty,

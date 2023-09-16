@@ -23,7 +23,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace grf {
+namespace rrcf {
 
 class SampleWeightComputer {
 public:

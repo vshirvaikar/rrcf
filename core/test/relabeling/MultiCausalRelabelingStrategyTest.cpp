@@ -20,7 +20,7 @@
 #include "relabeling/RelabelingStrategy.h"
 #include "relabeling/MultiCausalRelabelingStrategy.h"
 
-using namespace grf;
+using namespace rrcf;
 
 Eigen::ArrayXXd get_relabeled_outcomes(
   std::vector<double> observations, size_t num_samples, size_t num_treatments, const std::vector<double>& gradient_weights) {

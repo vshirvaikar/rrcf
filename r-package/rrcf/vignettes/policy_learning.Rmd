@@ -16,13 +16,13 @@ set.seed(123)
 ```
 
 ```{r setup}
-library(grf)
+library(rrcf)
 library(policytree)
 ```
 
 ## Estimating tree-based treatment assignment rules
 
-Using suitable estimates of individual treatment effects, Athey and Wager (2021) show that one can estimate policies with favorable statistical properties (low regret). The case where we restrict our candidate policies to be a (shallow) tree, is implemented in the companion package [policytree](https://github.com/grf-labs/policytree) (Sverdrup et. al, 2020).
+Using suitable estimates of individual treatment effects, Athey and Wager (2021) show that one can estimate policies with favorable statistical properties (low regret). The case where we restrict our candidate policies to be a (shallow) tree, is implemented in the companion package [policytree](https://github.com/rrcf-labs/policytree) (Sverdrup et. al, 2020).
 
 The example below demonstrates fitting a depth-2 tree on doubly robust treatment effect estimates obtained from a causal forest. The function `policy_tree` and `double_robust_scores` belong to the `policytree` package.
 

@@ -21,7 +21,7 @@
 #include "InstrumentalSplittingRule.h"
 #include "InstrumentalGLM.h"
 
-namespace grf {
+namespace rrcf {
 
 InstrumentalSplittingRule::InstrumentalSplittingRule(size_t max_num_unique_values,
                                                      uint min_node_size,

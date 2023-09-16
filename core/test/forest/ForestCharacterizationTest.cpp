@@ -29,7 +29,7 @@
 
 //#define UPDATE_PREDICTION_FILES
 
-using namespace grf;
+using namespace rrcf;
 
 bool equal_predictions(const std::vector<Prediction>& actual_predictions,
                        const std::vector<std::vector<double>>& expected_predictions) {

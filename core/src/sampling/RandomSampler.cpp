@@ -17,7 +17,7 @@
 
 #include "RandomSampler.h"
 
-namespace grf {
+namespace rrcf {
 
 RandomSampler::RandomSampler(uint seed,
                              const SamplingOptions& options) :

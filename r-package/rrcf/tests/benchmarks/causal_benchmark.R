@@ -1,4 +1,4 @@
-# grf benchmark script
+# rrcf benchmark script
 # This script benchmarks timings for:
 # - regression forest ("Y")
 # - causal forest ("tau")
@@ -24,7 +24,7 @@ generate_multi_arm_causal_data <-function(n, p) {
   list(X = X, Y = Y, W = W, tau = tau)
 }
 
-library(grf)
+library(rrcf)
 set.seed(1)
 
 reps <- 10

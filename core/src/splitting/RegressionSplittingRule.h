@@ -22,7 +22,7 @@
 #include "splitting/SplittingRule.h"
 #include "tree/Tree.h"
 
-namespace grf {
+namespace rrcf {
 
 class RegressionSplittingRule final: public SplittingRule {
 public:

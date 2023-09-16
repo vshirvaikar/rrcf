@@ -1,19 +1,19 @@
 # Notes:
-# - The paper refers to an argument called `samples.per.cluster`. This option was removed in grf version 1.0
+# - The paper refers to an argument called `samples.per.cluster`. This option was removed in rrcf version 1.0
 # and is now by default (`equalize.cluster.weights = FALSE`) internally set to the size of the largest cluster,
 # which means that large schools recieve larger weight than small schools. To be closer to the original behavior,
 # this script has been updated by setting `equalize.cluster.weights` to TRUE, which means each school receives
 # equal weight in ATE estimation.
 #
-# For more details on clustering in grf, see the algorithm reference at:
-# https://grf-labs.github.io/grf/REFERENCE.html#cluster-robust-estimation
+# For more details on clustering in rrcf, see the algorithm reference at:
+# https://rrcf-labs.github.io/rrcf/REFERENCE.html#cluster-robust-estimation
 set.seed(1)
 
 rm(list = ls())
 
-library(grf)
-if(packageVersion("grf") < '0.10.2') {
-  warning("This script requires grf 0.10.2 or higher")
+library(rrcf)
+if(packageVersion("rrcf") < '0.10.2') {
+  warning("This script requires rrcf 0.10.2 or higher")
 }
 library(sandwich)
 library(lmtest)

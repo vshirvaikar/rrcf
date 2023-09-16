@@ -17,7 +17,7 @@
 
 #include "relabeling/LLRegressionRelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 LLRegressionRelabelingStrategy::LLRegressionRelabelingStrategy(double split_lambda,
                                                                bool weight_penalty,

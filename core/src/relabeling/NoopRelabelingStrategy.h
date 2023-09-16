@@ -20,7 +20,7 @@
 
 #include "relabeling/RelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 class NoopRelabelingStrategy final: public RelabelingStrategy {
 public:

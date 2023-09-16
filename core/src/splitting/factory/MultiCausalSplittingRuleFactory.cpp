@@ -18,7 +18,7 @@
 #include "splitting/factory/MultiCausalSplittingRuleFactory.h"
 #include "splitting/MultiCausalSplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 MultiCausalSplittingRuleFactory::MultiCausalSplittingRuleFactory(size_t response_length,
                                                                  size_t num_treatments):

@@ -20,7 +20,7 @@
 
 #include <future>
 
-namespace grf {
+namespace rrcf {
 
 TreeTraverser::TreeTraverser(uint num_threads) :
     num_threads(num_threads) {}

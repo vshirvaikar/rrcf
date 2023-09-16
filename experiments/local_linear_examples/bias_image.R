@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 library(glmnet)
 
 mu = function(x){ log(1 + exp(6 * x)) }

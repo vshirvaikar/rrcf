@@ -18,7 +18,7 @@
 #include "commons/utility.h"
 #include "relabeling/CausalSurvivalRelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 bool CausalSurvivalRelabelingStrategy::relabel(
     const std::vector<size_t>& samples,

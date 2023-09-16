@@ -24,7 +24,7 @@
 #include "Data.h"
 #include "globals.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * Split sequence start..end in num_parts parts with sizes as equal as possible.

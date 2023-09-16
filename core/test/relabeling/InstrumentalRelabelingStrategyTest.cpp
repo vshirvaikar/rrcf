@@ -20,7 +20,7 @@
 #include "relabeling/RelabelingStrategy.h"
 #include "relabeling/InstrumentalRelabelingStrategy.h"
 
-using namespace grf;
+using namespace rrcf;
 
 std::vector<double> get_relabeled_outcomes(
   std::vector<double> observations, size_t num_samples, bool use_sample_weights=false) {

@@ -19,7 +19,7 @@
 #include <unordered_map>
 #include "commons/globals.h"
 
-namespace grf {
+namespace rrcf {
 
 SamplingOptions::SamplingOptions():
     num_samples_per_cluster(0),

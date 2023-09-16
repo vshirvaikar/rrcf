@@ -26,7 +26,7 @@
 #include "prediction/PredictionValues.h"
 #include "splitting/SplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 class Tree {
 public:

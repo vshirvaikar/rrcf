@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 test_that("a simple survival forest workflow works", {
   n <- 100

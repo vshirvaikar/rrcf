@@ -18,7 +18,7 @@
 #include <algorithm>
 #include "relabeling/QuantileRelabelingStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 QuantileRelabelingStrategy::QuantileRelabelingStrategy(const std::vector<double>& quantiles) :
     quantiles(quantiles) {}

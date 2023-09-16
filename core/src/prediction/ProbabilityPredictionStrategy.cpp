@@ -18,7 +18,7 @@
 #include <cmath>
 #include "prediction/ProbabilityPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 ProbabilityPredictionStrategy::ProbabilityPredictionStrategy(size_t num_classes):
     num_classes(num_classes),

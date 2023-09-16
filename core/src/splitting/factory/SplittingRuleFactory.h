@@ -24,7 +24,7 @@
 #include "splitting/SplittingRule.h"
 #include "tree/TreeOptions.h"
 
-namespace grf {
+namespace rrcf {
 
 class SplittingRuleFactory {
 public:

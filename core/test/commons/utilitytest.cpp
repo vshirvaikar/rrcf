@@ -18,7 +18,7 @@
 #include "catch.hpp"
 #include "commons/utility.h"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("Split 0..9 in 1 part", "[equalSplit]") {
   std::vector<uint> test;

@@ -27,7 +27,7 @@
 #include "prediction/SurvivalPredictionStrategy.h"
 #include "prediction/CausalSurvivalPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 ForestPredictor instrumental_predictor(uint num_threads) {
   num_threads = ForestOptions::validate_num_threads(num_threads);

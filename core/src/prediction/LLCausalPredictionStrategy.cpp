@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "prediction/LLCausalPredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 LLCausalPredictionStrategy::LLCausalPredictionStrategy(std::vector<double> lambdas,
                                                        bool weight_penalty,

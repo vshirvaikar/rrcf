@@ -1,4 +1,4 @@
-library(grf)
+library(rrcf)
 
 set.seed(1234)
 
@@ -33,7 +33,7 @@ test_that("changing honest.fraction behaves as expected", {
   k <- 10
   X <- matrix(runif(n * k), nrow = n, ncol = k)
   Y <- runif(n)
-  forest_1 <- grf::regression_forest(X, Y,
+  forest_1 <- rrcf::regression_forest(X, Y,
     sample.fraction = sample_fraction_1,
     honesty = TRUE, honesty.fraction = honesty_fraction_1
   )
@@ -44,14 +44,14 @@ test_that("changing honest.fraction behaves as expected", {
   # Checking for the runtime_error:
   # "The honesty fraction is too close to 1 or 0, as no observations will be sampled."
   expect_error(
-    grf::regression_forest(X, Y,
+    rrcf::regression_forest(X, Y,
       sample.fraction = sample_fraction_2,
       honesty = TRUE, honesty.fraction = honesty_fraction_2
     ),
     class = "std::runtime_error"
   )
   expect_error(
-    grf::regression_forest(X, Y,
+    rrcf::regression_forest(X, Y,
       sample.fraction = sample_fraction_3,
       honesty = TRUE, honesty.fraction = honesty_fraction_3
     ),

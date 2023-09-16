@@ -21,7 +21,7 @@
 #include "commons/Data.h"
 #include "prediction/QuantilePredictionStrategy.h"
 
-namespace grf {
+namespace rrcf {
 
 QuantilePredictionStrategy::QuantilePredictionStrategy(std::vector<double> quantiles):
     quantiles(quantiles) {

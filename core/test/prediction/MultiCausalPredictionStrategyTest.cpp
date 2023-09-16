@@ -22,7 +22,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("multi causal predictions with one treatment is identical to causal forest predictions", "[multi_causal, prediction]") {
   auto data_vec = load_data("test/forest/resources/causal_data.csv");

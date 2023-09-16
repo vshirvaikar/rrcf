@@ -1,8 +1,8 @@
 rm(list = ls())
 
-setwd("~/git/grf/experiments/instrumental_ci_test")
+setwd("~/git/rrcf/experiments/instrumental_ci_test")
 
-library(grf)
+library(rrcf)
 
 #
 #

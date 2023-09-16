@@ -24,7 +24,7 @@
 #include "prediction/PredictionValues.h"
 #include "ObjectiveBayesDebiaser.h"
 
-namespace grf {
+namespace rrcf {
 
 /**
  * This prediction strategy is an extension of {@link InstrumentalPredictionStrategy}

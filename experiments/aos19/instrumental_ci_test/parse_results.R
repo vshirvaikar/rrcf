@@ -2,7 +2,7 @@ rm(list = ls())
 
 library(xtable)
 
-setwd("~/git/grf/experiments/instrumental_ci_test")
+setwd("~/git/rrcf/experiments/instrumental_ci_test")
 
 filenames = list.files("output", pattern="*", full.names=TRUE)
 

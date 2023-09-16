@@ -20,7 +20,7 @@
 
 #include "ProbabilitySplittingRule.h"
 
-namespace grf {
+namespace rrcf {
 
 ProbabilitySplittingRule::ProbabilitySplittingRule(size_t max_num_unique_values,
                                                    size_t num_classes,

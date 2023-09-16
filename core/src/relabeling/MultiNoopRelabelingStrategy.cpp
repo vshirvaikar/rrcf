@@ -17,7 +17,7 @@
 
  #include "relabeling/MultiNoopRelabelingStrategy.h"
 
- namespace grf {
+ namespace rrcf {
 
  MultiNoopRelabelingStrategy::MultiNoopRelabelingStrategy(size_t num_outcomes) :
   num_outcomes(num_outcomes) {}

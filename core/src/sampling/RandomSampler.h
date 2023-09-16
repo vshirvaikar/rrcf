@@ -30,7 +30,7 @@
 #include <set>
 #include <vector>
 
-namespace grf {
+namespace rrcf {
 
 class RandomSampler {
 public:

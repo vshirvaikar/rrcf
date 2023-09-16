@@ -4,7 +4,7 @@ rm(list = ls())
 library(ggplot2)
 library(texreg)
 library(speff2trial) # "ACTG175" data set.
-library(grf)
+library(rrcf)
 library(xtable)
 set.seed(123)
 

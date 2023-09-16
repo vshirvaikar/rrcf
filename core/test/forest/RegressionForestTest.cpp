@@ -24,7 +24,7 @@
 
 #include "catch.hpp"
 
-using namespace grf;
+using namespace rrcf;
 
 TEST_CASE("honest regression forests are shift invariant", "[regression, forest]") {
   // Run the original forest.
