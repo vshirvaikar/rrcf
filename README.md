@@ -31,6 +31,7 @@ Y <- pmax(X[, 1], 0) * W + X[, 2] + pmin(X[, 3], 0) + rnorm(n)
 
 # Train a relative risk causal forest.
 forest.rr = causal_forest(X, Y, W)
+predict.rr = rr_predict(forest.rr, X.test)
 ```
 
 ### References
