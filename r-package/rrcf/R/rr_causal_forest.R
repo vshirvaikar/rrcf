@@ -132,8 +132,8 @@ rr_causal_forest <- function(X, Y, W,
   data <- create_train_matrices(X, outcome = Y, treatment = W, sample.weights = Y.hat)
 
   args <- list(num.trees = num.trees,
-               clusters = NULL,
-               samples.per.cluster = NULL,
+               clusters = vector(mode = "numeric", length = 0),
+               samples.per.cluster = 0,
                sample.fraction = sample.fraction,
                mtry = mtry,
                min.node.size = min.node.size,
