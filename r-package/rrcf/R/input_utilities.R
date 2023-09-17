@@ -56,6 +56,10 @@ validate_observations <- function(V, X, allow.matrix = FALSE) {
     stop("The vector of observations (W, Y, Z or D) contains at least one NA.")
   }
 
+  if (!all(V %in% c(0, 1))) {
+    stop("The vector of observations (W or Y) must be binary (0 or 1 only).")
+  }
+
   if (NROW(V) != nrow(X)) {
     stop("length of observation (W, Y, Z or D) does not equal nrow(X).")
   }
