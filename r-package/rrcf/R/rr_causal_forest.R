@@ -140,8 +140,7 @@ get_forest_weights <- function(forest, newdata = NULL, num.threads = NULL) {
 #'
 #' @method predict causal_forest
 #' @export
-rr_predict.rr_causal_forest <- function(object, newdata,
-                                  num.threads = NULL) {
+predict.rr_causal_forest <- function(object, newdata, num.threads = NULL) {
   num.threads <- validate_num_threads(num.threads)
   X <- object[["X.orig"]]
   Y <- object[["Y.orig"]]
