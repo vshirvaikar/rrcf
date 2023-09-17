@@ -1,15 +1,17 @@
 # Relative Risk Causal Forests
 
-PRELIMINARY RELEASE
-
 A modification of the GRF package that targets relative risk heterogeneity in causal forests.
 
 ### Installation
 
-This development code can be installed from source using devtools.
+This development code can be installed from source using devtools. We strongly recommend installing the original GRF package first, as it provides all analysis functions related to causal forests (variable importance, visualization, etc.)
 
 ```R
+install.packages("grf")
 devtools::install_github("vshirvaikar/rrcf", subdir = "r-package/rrcf")
+
+library(grf)
+library(rrcf)
 ```
 
 ### Guidance
@@ -17,8 +19,6 @@ devtools::install_github("vshirvaikar/rrcf", subdir = "r-package/rrcf")
 The following script demonstrates how to implement a relative risk causal forest. As this code is preliminary, it uses some workarounds that are still in the process of being streamlined.
 
 ```R
-library(rrcf)
-
 # Generate data.
 n <- 2000
 p <- 10

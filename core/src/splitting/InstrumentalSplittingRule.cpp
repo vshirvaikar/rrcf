@@ -104,15 +104,9 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   bool best_send_missing_left = true;
 
   for (auto& var : possible_split_vars) {
-    if(imbalance_penalty == 100) {
-        find_glm_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
-                             num_node_small_z, sum_node_z, sum_node_z_squared, min_child_size, best_value,
-                             best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
-    } else {
-        find_best_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node, num_node_small_z,
-                              sum_node_z, sum_node_z_squared, min_child_size, best_value,
-                              best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
-    }
+    find_glm_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
+                         num_node_small_z, sum_node_z, sum_node_z_squared, min_child_size, best_value,
+                         best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
   }
 
   // Stop if no good split found
