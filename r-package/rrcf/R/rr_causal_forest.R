@@ -142,19 +142,19 @@ get_forest_weights <- function(forest, newdata = NULL, num.threads = NULL) {
 #' @export
 rr_predict.rr_causal_forest <- function(object, newdata,
                                   num.threads = NULL) {
-
-
-  local.linear <- !is.null(linear.correction.variables)
-  allow.na <- !local.linear
-
   num.threads <- validate_num_threads(num.threads)
-  forest.short <- object[-which(names(object) == "X.orig")]
   X <- object[["X.orig"]]
-  Y.centered <- object[["Y.orig"]] - object[["Y.hat"]]
-  W.centered <- object[["W.orig"]] - object[["W.hat"]]
-  train.data <- create_train_matrices(X, outcome = Y.centered, treatment = W.centered)
+  Y <- object[["Y.orig"]]
+  W <- object[["W.orig"]]
 
-  # Convert list to data frame.
-  empty <- sapply(ret, function(elem) length(elem) == 0)
-  do.call(cbind.data.frame, ret[!empty])
+  length = dim(newdata)[1]
+  output = numeric(length)
+  for(i in 1:length){
+    fw = get_forest_weights(object, newdata[i,])
+    df = cbind.data.frame(W, fw[1:length(Y)], fw[1:length(Y)]*Y)
+    tau1 = sum(subset(df, df[,1] == 1)[,3])/sum(subset(df, df[,1] == 1)[,2])
+    tau0 = sum(subset(df, df[,1] == 0)[,3])/sum(subset(df, df[,1] == 0)[,2])
+    output[i] = tau1/tau0
+  }
+  output
 }

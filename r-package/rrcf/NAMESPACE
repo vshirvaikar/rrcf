@@ -2,6 +2,7 @@
 
 S3method(rr_predict,rr_causal_forest)
 export(rr_causal_forest)
+export(rr_predict)
 importFrom(Matrix,Matrix)
 importFrom(Rcpp,evalCpp)
 importFrom(stats,coef)
