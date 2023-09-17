@@ -152,7 +152,6 @@ rr_causal_forest <- function(X, Y, W,
   forest <- do.call.rcpp(causal_train, c(data, args))
   class(forest) <- c("causal_forest", "rrcf")
   forest[["seed"]] <- seed
-  forest[["ci.group.size"]] <- ci.group.size
   forest[["X.orig"]] <- X
   forest[["Y.orig"]] <- Y
   forest[["W.orig"]] <- W
