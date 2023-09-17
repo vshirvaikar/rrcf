@@ -5,7 +5,8 @@ Authors@R: c(
     person("Vik", "Shirvaikar", role = c("aut", "cre"), email = "vik.shirvaikar@spc.ox.ac.uk"),
     person("Chris", "Holmes", role = "aut")
     )
-Description: A modification of the GRF package that targets relative risk heterogeneity in causal forests.
+Description: A modification of the Generalized Random Forests (grf) package
+    that targets relative risk heterogeneity in causal forests.
 Depends:
     R (>= 3.5.0)
 License: GPL-3
