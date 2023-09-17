@@ -157,12 +157,6 @@ rr_causal_forest <- function(X, Y, W,
   forest[["Y.orig"]] <- Y
   forest[["W.orig"]] <- W
   forest[["Y.hat"]] <- Y.hat
-  forest[["W.hat"]] <- W.hat
-  forest[["clusters"]] <- clusters
-  forest[["equalize.cluster.weights"]] <- equalize.cluster.weights
-  forest[["sample.weights"]] <- sample.weights
-  forest[["tunable.params"]] <- NULL
-  forest[["tuning.output"]] <- NULL
   forest[["has.missing.values"]] <- has.missing.values
 
   forest
