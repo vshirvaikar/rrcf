@@ -30,7 +30,9 @@ W <- rbinom(n, 1, 0.4 + 0.2 * (X[, 1] > 0))
 Y <- pmax(X[, 1], 0) * W + X[, 2] + pmin(X[, 3], 0) + rnorm(n)
 
 # Train a relative risk causal forest.
-forest.rr = causal_forest(X, Y, W)
+forest.rr = rr_causal_forest(X, Y, W)
+
+# View predictions of RELATIVE conditional treatment effect.
 predict.rr = rr_predict(forest.rr, X.test)
 ```
 
