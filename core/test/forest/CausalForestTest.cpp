@@ -30,6 +30,7 @@ TEST_CASE("causal GLM forests are functional", "[causal, forest]") {
     size_t weight_index = 7;
     size_t outcome_index = 10;
     size_t treatment_index = 11;
+
     auto data_vec = load_data("/home/shirvaik/CLionProjects/rrcf/core/test/forest/resources/aquamat.csv");
     Data data(data_vec);
     data.set_weight_index(weight_index);
@@ -37,9 +38,9 @@ TEST_CASE("causal GLM forests are functional", "[causal, forest]") {
     data.set_treatment_index(treatment_index);
     data.set_instrument_index(treatment_index);
 
-    // Imbalance penalty of 100 is trick flag to use GLM splitting rule
+    // Imbalance penalty of 100 was trick flag to use GLM splitting rule
     ForestTrainer trainer = instrumental_trainer(0, true);
-    ForestOptions options = ForestTestUtilities::custom_options(4, 100, 5);
+    ForestOptions options = ForestTestUtilities::custom_options(4, 0, 5);
     Forest forest = trainer.train(data, options);
 
     const std::vector<std::unique_ptr<Tree>>& trees = forest.get_trees();

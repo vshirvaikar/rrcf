@@ -103,10 +103,16 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   double best_decrease = 0.0;
   bool best_send_missing_left = true;
 
+  bool random_split = false;
+  double random_split_indicator = rand() % 100;
+  if (random_split_indicator >= 95){
+      random_split = true;
+  }
+
   for (auto& var : possible_split_vars) {
     find_glm_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
                          num_node_small_z, sum_node_z, sum_node_z_squared, min_child_size, best_value,
-                         best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
+                         best_var, best_decrease, best_send_missing_left, responses_by_sample, samples, random_split);
   }
 
   // Stop if no good split found
@@ -136,7 +142,8 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
                                                    double& best_decrease,
                                                    bool& best_send_missing_left,
                                                    const Eigen::ArrayXXd& responses_by_sample,
-                                                   const std::vector<std::vector<size_t>>& samples) {
+                                                   const std::vector<std::vector<size_t>>& samples,
+                                                   bool random_split) {
     std::vector<double> possible_split_values;
     std::vector<size_t> sorted_samples;
     data.get_all_values(possible_split_values, sorted_samples, samples[node], var);
@@ -178,7 +185,12 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
             break;
         }
 
-        double tstatistic = model.glm_fit(covariates, outcomes, "poisson", 15, 0.001);
+        double tstatistic = 0;
+        if(!random_split) {
+            tstatistic = model.glm_fit(covariates, outcomes, "poisson", 15, 0.001);
+        } else {
+            tstatistic = rand();
+        }
         if (tstatistic > best_decrease) {
             best_value = sorted_split_vals(i);
             best_var = var;

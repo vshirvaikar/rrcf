@@ -76,7 +76,8 @@ private:
                                    double& best_decrease,
                                    bool& best_send_missing_left,
                                    const Eigen::ArrayXXd& responses_by_sample,
-                                   const std::vector<std::vector<size_t>>& samples);
+                                   const std::vector<std::vector<size_t>>& samples,
+                                   bool random_split);
 
   void find_glm_split_value_full(const Data& data,
                                  size_t node,
