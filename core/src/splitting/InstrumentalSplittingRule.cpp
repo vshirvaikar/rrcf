@@ -105,7 +105,7 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
 
   bool random_split = false;
   double random_split_indicator = rand() % 100;
-  if (random_split_indicator >= 95){
+  if (random_split_indicator >= 99){
       random_split = true;
   }
 
