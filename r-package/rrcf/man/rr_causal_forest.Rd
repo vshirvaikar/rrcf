@@ -2,7 +2,7 @@
 % Please edit documentation in R/rr_causal_forest.R
 \name{rr_causal_forest}
 \alias{rr_causal_forest}
-\title{Relative risk causal forest}
+\title{Causal forest}
 \usage{
 rr_causal_forest(
   X,
@@ -31,17 +31,21 @@ rr_causal_forest(
 \item{num.trees}{Number of trees grown in the forest. Default is 2000.}
 
 \item{sample.fraction}{Fraction of the data used to build each tree.
-Note: If honesty = TRUE, these subsamples will further be cut by a factor of honesty.fraction. Default is 0.5.}
+Note: If honesty = TRUE, these subsamples will
+further be cut by a factor of honesty.fraction. Default is 0.5.}
 
-\item{mtry}{Number of variables tried for each split. Default is \eqn{\sqrt p + 20} where p is the number of variables.}
+\item{mtry}{Number of variables tried for each split. Default is
+\eqn{\sqrt p + 20} where p is the number of variables.}
 
 \item{min.node.size}{A target for the minimum number of observations in each tree leaf. Note that nodes
-with size smaller than min.node.size can occur, as in the original randomForest package. Default is 5.}
+with size smaller than min.node.size can occur, as in the original randomForest package.
+Default is 5.}
 
 \item{honesty}{Whether to use honest splitting (i.e., sub-sample splitting). Default is TRUE.}
 
 \item{honesty.fraction}{The fraction of data that will be used for determining splits if honesty = TRUE. Corresponds
-to set J1 in the notation of the paper. Default is 0.5 (i.e. half of the data is used for determining splits).}
+to set J1 in the notation of the paper. Default is 0.5 (i.e. half of the data is used for
+determining splits).}
 
 \item{honesty.prune.leaves}{If TRUE, prunes the estimation sample tree such that no leaves
 are empty. If FALSE, keep the same tree as determined in the splits sample (if an empty leave is encountered, that
@@ -59,7 +63,8 @@ to the maximum hardware concurrency.}
 \item{seed}{The seed of the C++ random number generator.}
 }
 \value{
-A trained causal forest object.
+A trained causal forest object. If tune.parameters is enabled,
+ then tuning information will be included through the `tuning.output` attribute.
 }
 \description{
 Trains a relative risk causal forest that can be used to estimate

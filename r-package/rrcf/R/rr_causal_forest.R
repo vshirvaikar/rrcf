@@ -138,7 +138,7 @@ get_forest_weights <- function(forest, newdata = NULL, num.threads = NULL) {
 #'
 #' @return Vector of RELATIVE treatment effect predictions.
 #'
-#' @method rr_predict
+#' @method rr_predict causal_forest
 #' @export
 rr_predict <- function(object, newdata, num.threads = NULL) {
   num.threads <- validate_num_threads(num.threads)
