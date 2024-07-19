@@ -4,7 +4,7 @@
 \alias{rr_predict}
 \title{Predict with a causal forest}
 \usage{
-\method{rr_predict}{causal_forest}(object, newdata, num.threads = NULL)
+rr_predict(object, newdata, num.threads = NULL)
 }
 \arguments{
 \item{object}{The trained forest.}
