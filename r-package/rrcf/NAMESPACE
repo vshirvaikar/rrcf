@@ -3,4 +3,5 @@
 export(get_forest_weights)
 export(rr_causal_forest)
 export(rr_predict)
+export(rr_test_calibration)
 useDynLib(rrcf)

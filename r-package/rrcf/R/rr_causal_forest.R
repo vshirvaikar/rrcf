@@ -156,3 +156,61 @@ rr_predict <- function(object, newdata, num.threads = NULL) {
   }
   output
 }
+
+#' Predict with a causal forest
+#'
+#' Gets estimates of RELATIVE tau(x) using a trained causal forest.
+#'
+#' @param object The trained forest.
+#' @param newdata Points at which predictions should be made. Note
+#'                that this matrix should have the number of columns as the training
+#'                matrix, and that the columns must appear in the same order.
+#' @param num.threads Number of threads used in training. If set to NULL, the software
+#'                    automatically selects an appropriate amount.
+#'
+#' @return Vector of RELATIVE treatment effect predictions.
+#'
+#' @export
+rr_predict <- function(object, newdata, num.threads = NULL) {
+  num.threads <- validate_num_threads(num.threads)
+  X <- object[["X.orig"]]
+  Y <- object[["Y.orig"]]
+  W <- object[["W.orig"]]
+
+  length = dim(newdata)[1]
+  output = numeric(length)
+  for(i in 1:length){
+    fw = get_forest_weights(object, newdata[i,])
+    df = cbind.data.frame(W, fw[1:length(Y)], fw[1:length(Y)]*Y)
+    tau1 = sum(subset(df, df[,1] == 1)[,3])/sum(subset(df, df[,1] == 1)[,2])
+    tau0 = sum(subset(df, df[,1] == 0)[,3])/sum(subset(df, df[,1] == 0)[,2])
+    output[i] = tau1/tau0
+  }
+  output
+}
+
+#' ANOVA evaluation of overall detection of treatment effect heterogeneity.
+#'
+#' Test overall TEH detection of the forest. Conducts an ANOVA test to indicate
+#' whether the predicted forest RR coefficients add any information to outcome
+#' predictions, compared to baseline model with only treatment and covariates.
+#'
+#' @param forest The trained forest.
+#' @param X The covariates used in the causal regression.
+#' @param Y The outcome (must be a binary numeric vector with no NAs).
+#' @param W The treatment assignment (must be a binary numeric vector with no NAs).
+#'
+#' @return P-value for information added by forest predictions.
+#'
+#' @export
+rr_test_calibration <- function(forest, X, Y, W) {
+  anova.data = data.frame(cbind(Y, W, X))
+  predictions = rr_predict(forest, X)
+
+  model.base = glm(Y ~ . , family = poisson, data = anova.data)
+  model.forest = glm(Y ~ . , family = poisson, data = cbind(anova.data, W*log(predictions)))
+
+  anova.test = anova(model.base, model.forest)
+  result = 1-pchisq(anova.test$Deviance[2], df=1)
+  result
+}
