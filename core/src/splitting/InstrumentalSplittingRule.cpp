@@ -104,10 +104,10 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   bool best_send_missing_left = true;
 
   bool random_split = false;
-  double random_split_indicator = rand() % 100;
-  if (random_split_indicator >= 99){
-      random_split = true;
-  }
+  //double random_split_indicator = rand() % 100;
+  //if (random_split_indicator >= 99){
+  //    random_split = true;
+  //}
 
   for (auto& var : possible_split_vars) {
     find_glm_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
