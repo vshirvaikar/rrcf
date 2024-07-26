@@ -31,6 +31,8 @@ namespace rrcf {
 
         double dummy();
 
+    double calculate_p_value(double z);
+
 	Eigen::VectorXd cwiseExp(Eigen::VectorXd input);
 
 	Eigen::VectorXd variance(std::string family, Eigen::VectorXd mu);

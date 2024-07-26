@@ -36,6 +36,12 @@ double InstrumentalGLM::dummy(){
     return output;
 }
 
+// Function to calculate the p-value from a z-statistic
+double InstrumentalGLM::calculate_p_value(double z) {
+    double x = 0.5 * std::erfc(-z * std::sqrt(0.5));
+    return 2.0 * (1.0 - x);
+}
+
 Eigen::VectorXd InstrumentalGLM::cwiseExp(Eigen::VectorXd input){
     return input.array().exp().matrix();
 }
