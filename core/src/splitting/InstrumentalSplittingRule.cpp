@@ -100,23 +100,17 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   // Initialize the variables to track the best split variable.
   size_t best_var = 0;
   double best_value = 0;
-  double best_decrease = 1.0;
+  double best_decrease = num_samples;
   bool best_send_missing_left = true;
-
-  bool random_split = false;
-  //double random_split_indicator = rand() % 100;
-  //if (random_split_indicator >= 99){
-  //    random_split = true;
-  //}
 
   for (auto& var : possible_split_vars) {
     find_glm_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
                          num_node_small_z, sum_node_z, sum_node_z_squared, min_child_size, best_value,
-                         best_var, best_decrease, best_send_missing_left, responses_by_sample, samples, random_split);
+                         best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
   }
 
   // Stop if no good split found
-  if (best_decrease >= 1.0) {
+  if (best_decrease >= num_samples) {
     return true;
   }
 
@@ -142,8 +136,7 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
                                                    double& best_decrease,
                                                    bool& best_send_missing_left,
                                                    const Eigen::ArrayXXd& responses_by_sample,
-                                                   const std::vector<std::vector<size_t>>& samples,
-                                                   bool random_split) {
+                                                   const std::vector<std::vector<size_t>>& samples) {
     std::vector<double> possible_split_values;
     std::vector<size_t> sorted_samples;
     data.get_all_values(possible_split_values, sorted_samples, samples[node], var);
@@ -186,17 +179,17 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
         }
 
         double tstatistic = 0;
-        if(!random_split) {
-            tstatistic = model.glm_fit(covariates, outcomes, "poisson", 15, 0.001);
-        } else {
-            tstatistic = rand();
+        tstatistic = model.glm_fit(covariates, outcomes, "poisson", 15, 0.001);
+        if (tstatistic == 0) { // model failed to converge
+            return;
         }
-        double pvalue = model.calculate_p_value(tstatistic)*possible_split_values.size();
 
-        if (pvalue < best_decrease) {
+        // Adjust p-value with multiple correction for variable's split points
+        double pvalue_adj = model.calculate_p_value(tstatistic)*possible_split_values.size();
+        if (pvalue_adj < best_decrease) {
             best_value = sorted_split_vals(i);
             best_var = var;
-            best_decrease = pvalue;
+            best_decrease = pvalue_adj;
         }
     }
 }
