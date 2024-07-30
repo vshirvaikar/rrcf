@@ -100,7 +100,7 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   // Initialize the variables to track the best split variable.
   size_t best_var = 0;
   double best_value = 0;
-  double best_decrease = num_samples;
+  double best_decrease = 0.0;
   bool best_send_missing_left = true;
 
   for (auto& var : possible_split_vars) {
@@ -110,7 +110,7 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   }
 
   // Stop if no good split found
-  if (best_decrease >= num_samples) {
+  if (best_decrease <= 0.0) {
     return true;
   }
 
@@ -185,11 +185,12 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
         }
 
         // Adjust p-value with multiple correction for variable's split points
-        double pvalue_adj = model.calculate_p_value(tstatistic)*possible_split_values.size();
-        if (pvalue_adj < best_decrease) {
+        //double pvalue_adj = model.calculate_p_value(tstatistic)*possible_split_values.size();
+        //if (pvalue_adj < best_decrease) {
+        if(tstatistic > best_decrease) {
             best_value = sorted_split_vals(i);
             best_var = var;
-            best_decrease = pvalue_adj;
+            best_decrease = tstatistic;
         }
     }
 }
