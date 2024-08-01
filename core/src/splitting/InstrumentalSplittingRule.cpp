@@ -179,9 +179,10 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
 
         double tstatistic = model.glm_fit(covariates, outcomes, "poisson", 10, 0.01);
         // Adjust p-value with multiple correction for variable's split points
-        //if (tstatistic <= 0) { // model failed to converge
+        if (tstatistic <= 0) { // model failed to converge
         //    continue; // NOT return;
-        //}
+            tstatistic = static_cast<double>(rand()) / RAND_MAX * 0.01;
+        }
         //double pvalue_adj = model.calculate_p_value(tstatistic)*possible_split_values.size();
         //if (pvalue_adj < best_decrease) {
         if(tstatistic > best_decrease) {

@@ -49,6 +49,7 @@ TEST_CASE("causal GLM forests are functional", "[causal, forest]") {
 
     const std::vector<std::unique_ptr<Tree>>& trees = forest.get_trees();
     size_t splits = trees[0]->get_split_vars().size();
+
     REQUIRE(splits > 2);
 }
 
