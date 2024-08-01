@@ -113,7 +113,7 @@ double InstrumentalGLM::glm_fit(const Eigen::MatrixXd& X, const Eigen::VectorXd&
             converged = true;
             break;
         }
-        if (error_old - error < tol){
+        if (abs(error_old - error) < tol){
 // Debug code to print out s coefficients
 //            std::ofstream file2("/home/shirvaik/Desktop/GRF/coeffs.csv");
 //            if (file2.is_open()) {
