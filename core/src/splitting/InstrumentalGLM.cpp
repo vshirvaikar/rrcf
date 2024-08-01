@@ -17,6 +17,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <fstream>
 #include "InstrumentalGLM.h"
 
 namespace rrcf {
@@ -89,6 +90,7 @@ double InstrumentalGLM::glm_fit(const Eigen::MatrixXd& X, const Eigen::VectorXd&
     Eigen::MatrixXd R = Eigen::MatrixXd::Identity(n_cols, n_rows) * fullR;
     Eigen::MatrixXd V;
     bool converged = false;
+    double error_old = 0.0;
 
     for (size_t i = 0; i < maxit; i++) {
         s_old = s;
@@ -111,15 +113,39 @@ double InstrumentalGLM::glm_fit(const Eigen::MatrixXd& X, const Eigen::VectorXd&
             converged = true;
             break;
         }
+        if (error_old - error < tol){
+// Debug code to print out s coefficients
+//            std::ofstream file2("/home/shirvaik/Desktop/GRF/coeffs.csv");
+//            if (file2.is_open()) {
+//                for (int j = 0; j < X.cols(); ++j) {
+//                    file2 << s(j) << "," << s_old(j) << "\n";
+//                }
+//                file2.close();
+//            }
+            break;
+        }
+        error_old = error;
     }
 
     if(!converged){
+// Debug code to print out X and y data
+//        std::ofstream file("/home/shirvaik/Desktop/GRF/readout.csv");
+//        if (file.is_open()) {
+//            for (int i = 0; i < X.rows(); ++i) {
+//                for (int j = 0; j < X.cols(); ++j) {
+//                    file << X(i, j);
+//                    if (j < X.cols() - 1) file << ",";
+//                }
+//                file << "," << y(i);
+//                file << "\n";
+//            }
+//            file.close();
+//        }
         return 0.0;
     }
     Eigen::VectorXd coeffs = R.householderQr().solve(Q.transpose() * eta);
     Eigen::VectorXd stderrs = V.diagonal().cwiseSqrt();
     Eigen::VectorXd tstats = coeffs.cwiseQuotient(stderrs);
-
     return abs(tstats(tstats.rows() - 1));
 }
 
