@@ -178,10 +178,8 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
             break;
         }
 
-        double tstatistic = 0;
-        tstatistic = rand();
-        //tstatistic = model.glm_fit(covariates, outcomes, "poisson", 15, 0.001);
-        if (tstatistic == 0) { // model failed to converge
+        double tstatistic = model.glm_fit(covariates, outcomes, "poisson", 15, 0.01);
+        if (tstatistic <= 0) { // model failed to converge
             return;
         }
 

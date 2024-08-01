@@ -114,11 +114,12 @@ double InstrumentalGLM::glm_fit(const Eigen::MatrixXd& X, const Eigen::VectorXd&
     }
 
     if(!converged){
-        return 0;
+        return 0.0;
     }
     Eigen::VectorXd coeffs = R.householderQr().solve(Q.transpose() * eta);
     Eigen::VectorXd stderrs = V.diagonal().cwiseSqrt();
     Eigen::VectorXd tstats = coeffs.cwiseQuotient(stderrs);
+
     return abs(tstats(tstats.rows() - 1));
 }
 
