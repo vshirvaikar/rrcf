@@ -104,9 +104,11 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
   bool best_send_missing_left = true;
 
   for (auto& var : possible_split_vars) {
-    find_glm_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
-                         num_node_small_z, sum_node_z, sum_node_z_squared, min_child_size, best_value,
+    find_glm_split_value(data, node, var, num_samples, mean_z_node, num_node_small_z, best_value,
                          best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
+//  find_best_split_value(data, node, var, num_samples, weight_sum_node, sum_node, mean_z_node,
+//                        num_node_small_z, sum_node_z, sum_node_z_squared, min_child_size, best_value,
+//                        best_var, best_decrease, best_send_missing_left, responses_by_sample, samples);
   }
 
   // Stop if no good split found
@@ -124,13 +126,8 @@ bool InstrumentalSplittingRule::find_best_split(const Data& data,
 void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
                                                    size_t node, size_t var,
                                                    size_t num_samples,
-                                                   double weight_sum_node,
-                                                   double sum_node,
                                                    double mean_node_z,
                                                    size_t num_node_small_z,
-                                                   double sum_node_z,
-                                                   double sum_node_z_squared,
-                                                   double min_child_size,
                                                    double& best_value,
                                                    size_t& best_var,
                                                    double& best_decrease,
@@ -157,7 +154,7 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
 
     for(size_t i = 0; i < num_samples - 1; i++){
         covariates(i, 2) = 0; // changing S to 0
-        covariates(i, 3) = 0; // changing SW to 0
+        covariates(i, 3) = 0; // changing WS to 0
         n_left++;
         double z = treatments(i);
         if(z < mean_node_z){
@@ -179,10 +176,10 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
 
         double tstatistic = model.glm_fit(covariates, outcomes, "poisson", 10, 0.01);
         // Adjust p-value with multiple correction for variable's split points
-        if (tstatistic <= 0) { // model failed to converge
+        //if (tstatistic <= 0) { // model failed to converge
         //    continue; // NOT return;
-            tstatistic = static_cast<double>(rand()) / RAND_MAX * 0.01;
-        }
+        //    tstatistic = static_cast<double>(rand()) / RAND_MAX * 0.01;
+        //}
         //double pvalue_adj = model.calculate_p_value(tstatistic)*possible_split_values.size();
         //if (pvalue_adj < best_decrease) {
         if(tstatistic > best_decrease) {
@@ -196,13 +193,8 @@ void InstrumentalSplittingRule::find_glm_split_value(const Data& data,
 void InstrumentalSplittingRule::find_glm_split_value_full(const Data& data,
                                                           size_t node, size_t var,
                                                           size_t num_samples,
-                                                          double weight_sum_node,
-                                                          double sum_node,
                                                           double mean_node_z,
                                                           size_t num_node_small_z,
-                                                          double sum_node_z,
-                                                          double sum_node_z_squared,
-                                                          double min_child_size,
                                                           double& best_value,
                                                           size_t& best_var,
                                                           double& best_decrease,
