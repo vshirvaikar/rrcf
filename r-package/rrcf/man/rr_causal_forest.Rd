@@ -8,6 +8,7 @@ rr_causal_forest(
   X,
   Y,
   W,
+  W.hat = NULL,
   num.trees = 2000,
   sample.fraction = 0.5,
   mtry = min(ceiling(sqrt(ncol(X)) + 20), ncol(X)),
@@ -15,7 +16,6 @@ rr_causal_forest(
   honesty = TRUE,
   honesty.fraction = 0.5,
   honesty.prune.leaves = TRUE,
-  alpha = 0.05,
   stabilize.splits = TRUE,
   num.threads = NULL,
   seed = runif(1, 0, .Machine$integer.max)
@@ -27,6 +27,9 @@ rr_causal_forest(
 \item{Y}{The outcome (must be a binary numeric vector with no NAs).}
 
 \item{W}{The treatment assignment (must be a binary numeric vector with no NAs).}
+
+\item{W.hat}{Estimates of the treatment propensities E[W | Xi]. If W.hat = NULL,
+these are estimated using a separate regression forest. Default is NULL.}
 
 \item{num.trees}{Number of trees grown in the forest. Default is 2000.}
 
@@ -52,8 +55,6 @@ are empty. If FALSE, keep the same tree as determined in the splits sample (if a
 tree is skipped and does not contribute to the estimate). Setting this to FALSE may improve performance on
 small/marginally powered data, but requires more trees. Only applies if honesty is enabled. Default is TRUE.}
 
-\item{alpha}{A tuning parameter that controls the maximum imbalance of a split. Default is 0.05.}
-
 \item{stabilize.splits}{Whether or not the treatment should be taken into account when
 determining the imbalance of a split. Default is TRUE.}
 
@@ -61,6 +62,8 @@ determining the imbalance of a split. Default is TRUE.}
 to the maximum hardware concurrency.}
 
 \item{seed}{The seed of the C++ random number generator.}
+
+\item{alpha}{A tuning parameter that controls the maximum imbalance of a split. Default is 0.05.}
 }
 \value{
 A trained causal forest object. If tune.parameters is enabled,

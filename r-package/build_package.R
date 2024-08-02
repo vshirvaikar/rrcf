@@ -24,6 +24,7 @@ if (!is.na(args[1]) && args[1] == "--as-cran") {
 
 # Auto-generate documentation files
 roxygen2::roxygenise(package.name)
+## ISSUE: This does not add useDynLib(rrcf) to NAMESPACE - needs to be included
 
 # Run Rcpp and build the package.
 # Symlinks in `rrcf/src` point to the Rcpp bindings (`rrcf/bindings`) and core C++ (`core/src`).

@@ -9,6 +9,8 @@
 #' @param X The covariates used in the causal regression.
 #' @param Y The outcome (must be a binary numeric vector with no NAs).
 #' @param W The treatment assignment (must be a binary numeric vector with no NAs).
+#' @param W.hat Estimates of the treatment propensities E[W | Xi]. If W.hat = NULL,
+#'              these are estimated using a separate regression forest. Default is NULL.
 #' @param num.trees Number of trees grown in the forest. Default is 2000.
 #' @param sample.fraction Fraction of the data used to build each tree.
 #'                        Note: If honesty = TRUE, these subsamples will
@@ -38,6 +40,7 @@
 #'
 #' @export
 rr_causal_forest <- function(X, Y, W,
+                             W.hat = NULL,
                              num.trees = 2000,
                              sample.fraction = 0.5,
                              mtry = min(ceiling(sqrt(ncol(X)) + 20), ncol(X)),
@@ -45,12 +48,11 @@ rr_causal_forest <- function(X, Y, W,
                              honesty = TRUE,
                              honesty.fraction = 0.5,
                              honesty.prune.leaves = TRUE,
-                             alpha = 0.05,
                              stabilize.splits = TRUE,
                              num.threads = NULL,
                              seed = runif(1, 0, .Machine$integer.max)) {
 
-  has.missing.values <- validate_X(X, allow.na = TRUE)
+  has.missing.values <- validate_X(X, allow.na = FALSE)
   Y <- validate_observations(Y, X)
   W <- validate_observations(W, X)
   num.threads <- validate_num_threads(num.threads)
@@ -58,8 +60,30 @@ rr_causal_forest <- function(X, Y, W,
   model.risk = glm(Y ~ ., data = cbind(Y, X), family="poisson")
   Y.hat = predict(model.risk, X)
   Y.hat = Y.hat - min(Y.hat)
-  data <- create_train_matrices(X, outcome = Y, treatment = W, sample.weights = Y.hat)
 
+  args.orthog <- list(X = X,
+                      num.trees = max(50, num.trees / 4),
+                      sample.fraction = sample.fraction,
+                      mtry = mtry,
+                      min.node.size = 5,
+                      honesty = TRUE,
+                      honesty.fraction = 0.5,
+                      honesty.prune.leaves = TRUE,
+                      alpha = 0.05,
+                      num.threads = num.threads,
+                      seed = seed)
+
+  if (is.null(W.hat)) {
+    forest.W <- do.call(regression_forest, c(Y = list(W), args.orthog))
+    W.hat <- predict(forest.W)$predictions
+  } else if (length(W.hat) == 1) {
+    W.hat <- rep(W.hat, nrow(X))
+  } else if (length(W.hat) != nrow(X)) {
+    stop("W.hat has incorrect length.")
+  }
+  W.centered <- W - W.hat
+
+  data <- create_train_matrices(X, outcome = Y, treatment = W.centered, sample.weights = Y.hat)
   args <- list(num.trees = num.trees,
                clusters = vector(mode = "numeric", length = 0),
                samples.per.cluster = 0,
@@ -69,7 +93,7 @@ rr_causal_forest <- function(X, Y, W,
                honesty = honesty,
                honesty.fraction = honesty.fraction,
                honesty.prune.leaves = honesty.prune.leaves,
-               alpha = alpha,
+               alpha = 0.05,
                imbalance.penalty = 0,
                stabilize.splits = stabilize.splits,
                ci.group.size = 2,
@@ -85,6 +109,7 @@ rr_causal_forest <- function(X, Y, W,
   forest[["Y.orig"]] <- Y
   forest[["W.orig"]] <- W
   forest[["Y.hat"]] <- Y.hat
+  forest[["W.hat"]] <- W.hat
   forest[["has.missing.values"]] <- has.missing.values
 
   forest

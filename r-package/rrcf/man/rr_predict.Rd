@@ -5,8 +5,6 @@
 \title{Predict with a causal forest}
 \usage{
 rr_predict(object, newdata, num.threads = NULL)
-
-rr_predict(object, newdata, num.threads = NULL)
 }
 \arguments{
 \item{object}{The trained forest.}
@@ -20,11 +18,7 @@ automatically selects an appropriate amount.}
 }
 \value{
 Vector of RELATIVE treatment effect predictions.
-
-Vector of RELATIVE treatment effect predictions.
 }
 \description{
-Gets estimates of RELATIVE tau(x) using a trained causal forest.
-
 Gets estimates of RELATIVE tau(x) using a trained causal forest.
 }
