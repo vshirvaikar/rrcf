@@ -59,7 +59,6 @@ rr_causal_forest <- function(X, Y, W,
 
   model.risk = glm(Y ~ ., data = cbind(Y, X), family="poisson")
   Y.hat = predict(model.risk, X)
-  Y.hat = Y.hat - min(Y.hat)
 
   args.orthog <- list(X = X,
                       num.trees = max(50, num.trees / 4),
