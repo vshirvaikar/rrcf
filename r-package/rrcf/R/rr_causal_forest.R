@@ -9,8 +9,8 @@
 #' @param X The covariates used in the causal regression.
 #' @param Y The outcome (must be a binary numeric vector with no NAs).
 #' @param W The treatment assignment (must be a binary numeric vector with no NAs).
-#' @param W.hat Estimates of the treatment propensities E[W | Xi]. If W.hat = NULL,
-#'              these are estimated using a separate regression forest. Default is NULL.
+#' @param rct Whether the data come from an RCT (meaning propensity score adjustment is not needed).
+#'            If FALSE, propensities E[W | Xi] are estimated using a separate regression forest. Default is TRUE.
 #' @param num.trees Number of trees grown in the forest. Default is 2000.
 #' @param sample.fraction Fraction of the data used to build each tree.
 #'                        Note: If honesty = TRUE, these subsamples will
@@ -40,7 +40,7 @@
 #'
 #' @export
 rr_causal_forest <- function(X, Y, W,
-                             W.hat = NULL,
+                             rct = TRUE,
                              num.trees = 2000,
                              sample.fraction = 0.5,
                              mtry = min(ceiling(sqrt(ncol(X)) + 20), ncol(X)),
@@ -72,13 +72,13 @@ rr_causal_forest <- function(X, Y, W,
                       num.threads = num.threads,
                       seed = seed)
 
-  if (is.null(W.hat)) {
+  if (rct) {
+    W.hat <- 0
+  } else {
     forest.W <- do.call(regression_forest, c(Y = list(W), args.orthog))
     W.hat <- predict(forest.W)$predictions
-  } else if (length(W.hat) == 1) {
-    W.hat <- rep(W.hat, nrow(X))
-  } else if (length(W.hat) != nrow(X)) {
-    stop("W.hat has incorrect length.")
+    epsilon = 0.0001
+    W.hat <- pmax(pmin(W.hat, 1-epsilon), epsilon)
   }
   W.centered <- W - W.hat
 

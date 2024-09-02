@@ -129,10 +129,12 @@ Eigen::MatrixXd Data::prepare_glm(size_t num_samples, std::vector<size_t> sorted
         sorted_split_vals(i) = get(sorted_samples[i], split_var);
         weights(i) = get_weight(sorted_samples[i]);
     }
-    covariates.col(0) = weights;
-    covariates.col(1) = treatments;
-    covariates.col(2) = Eigen::VectorXd::Ones(num_samples);
-    covariates.col(3) = treatments;
+    Eigen::VectorXd interactions = (treatments.array() > 0).cast<double>(); // get original non-centered W values
+
+    covariates.col(0) = weights; // Y.hat baseline risk term
+    covariates.col(1) = treatments; // W treatment (W.centered with propensity adjustment if observational)
+    covariates.col(2) = Eigen::VectorXd::Ones(num_samples); // S split indicator (all terms start on right)
+    covariates.col(3) = interactions; // WS treatment-split interaction
     return covariates;
 }
 
