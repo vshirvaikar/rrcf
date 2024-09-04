@@ -8,7 +8,7 @@ rr_causal_forest(
   X,
   Y,
   W,
-  W.hat = NULL,
+  rct = TRUE,
   num.trees = 2000,
   sample.fraction = 0.5,
   mtry = min(ceiling(sqrt(ncol(X)) + 20), ncol(X)),
@@ -28,8 +28,8 @@ rr_causal_forest(
 
 \item{W}{The treatment assignment (must be a binary numeric vector with no NAs).}
 
-\item{W.hat}{Estimates of the treatment propensities E[W | Xi]. If W.hat = NULL,
-these are estimated using a separate regression forest. Default is NULL.}
+\item{rct}{Whether the data come from an RCT (meaning propensity score adjustment is not needed).
+If FALSE, propensities E[W | Xi] are estimated using a separate regression forest. Default is TRUE.}
 
 \item{num.trees}{Number of trees grown in the forest. Default is 2000.}
 
