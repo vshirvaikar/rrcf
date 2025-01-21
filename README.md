@@ -18,6 +18,10 @@ library(grf)
 library(rrcf)
 ```
 
+Installation issues are often related to C++ compilation.
+- On Mac, use ```pkgbuild::check_build_tools(debug=TRUE)``` to ensure you have the necessary command line tools.
+- On Windows, make sure the RTools bundle has been installed and activated.
+
 ### Guidance
 
 The following script demonstrates how to implement a relative risk causal forest.
