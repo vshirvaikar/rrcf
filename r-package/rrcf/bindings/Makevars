@@ -1,16 +1,6 @@
 CXX_STD = CXX11
 
-PKG_CXXFLAGS = -Isrc -DR_BUILD
+PKG_CXXFLAGS = -I. -Isrc -DR_BUILD
 
-# Cross-platform wildcard handling
-ifeq ($(OS),Windows_NT)
-    # Windows (Rtools/Msys2)
-    SOURCES := $(shell dir /s /b *.cpp)
-else
-    # Mac/Linux
-    SOURCES := $(shell find . -name "*.cpp")
-endif
-
+SOURCES = $(wildcard *.cpp */*.cpp */*/*.cpp */*/*/*.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
-
-PKG_LIBS = -static-libgcc -static-libstdc++
