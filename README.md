@@ -10,6 +10,9 @@ This development code can be installed from source using devtools.
 The original GRF package should be installed first, as it provides all analysis 
 functions related to causal forests (variable importance, visualization, etc.)
 
+***Note (January 2025)***: The installation is currently supported for MacOS and Linux, but runs into a
+compilation error on Windows. We are aware of the issue and looking into a solution.
+
 ```R
 install.packages("grf")
 devtools::install_github("vshirvaikar/rrcf", subdir = "r-package/rrcf")
@@ -17,10 +20,6 @@ devtools::install_github("vshirvaikar/rrcf", subdir = "r-package/rrcf")
 library(grf)
 library(rrcf)
 ```
-
-Installation issues are often related to C++ compilation.
-- On Mac, use ```pkgbuild::check_build_tools(debug=TRUE)``` to ensure you have the necessary command line tools.
-- On Windows, make sure the RTools bundle has been installed and activated.
 
 ### Guidance
 
