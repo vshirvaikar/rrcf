@@ -26,25 +26,43 @@ compilation error on Windows. We are aware of the issue and looking into a solut
 The following script demonstrates how to implement a relative risk causal forest.
 
 ```R
-# Generate data.
+set.seed(123)
 n <- 2000
 p <- 10
-X <- matrix(rnorm(n * p), n, p)
-W <- rbinom(n, 1, 0.4 + 0.2 * (X[, 1] > 0))
-Y <- pmax(X[, 1], 0) * W + X[, 2] + pmin(X[, 3], 0) + rnorm(n)
-X.test <- matrix(0, 101, p)
-X.test[, 1] <- seq(-2, 2, length.out = 101)
-W.test <- rbinom(n, 1, 0.4 + 0.2 * (X.test[, 1] > 0))
-Y.test <- pmax(X.test[, 1], 0) * W.test + X.test[, 2] + pmin(X.test[, 3], 0) + rnorm(n)
+X <- as.data.frame(matrix(rnorm(n * p), n, p))
+names(X) <- paste0("X", 1:p)
 
-# Train a relative risk causal forest.
-forest.rr = rr_causal_forest(X, Y, W)
+# Generate treatment (with optional confounding)
+rct_flag <- TRUE # set to FALSE for observational data
+if (rct_flag) {
+  W <- rbinom(n, 1, 0.5)
+} else {
+  W <- rbinom(n, 1, plogis(X$X1 - X$X2))
+}
 
-# View predictions of RELATIVE conditional treatment effect.
-predict.rr = rr_predict(forest.rr, X.test)
+# Generate binary outcome with heterogeneous relative risk
+p0 <- plogis(-1 + 0.6 * X$X2)       # baseline risk
+log_rr <- pmax(X$X1, 0)             # heterogeneity in log-RR
+p1 <- pmin(p0 * exp(log_rr), 0.95)  # treated risk = RR * baseline (capped)
+Y <- rbinom(n, 1, ifelse(W == 1, p1, p0))
 
-# Test overall TEH detection of the forest using ANOVA.
-pval.rr = rr_test_calibration(forest.rr, X.test, Y.test, W.test)
+# Train/test split
+idx <- sample.int(n, floor(0.8 * n))
+X.train <- X[idx, , drop = FALSE]
+Y.train <- Y[idx]
+W.train <- W[idx]
+X.test  <- X[-idx, , drop = FALSE]
+Y.test  <- Y[-idx]
+W.test  <- W[-idx]
+
+# Fit relative risk causal forest
+forest.rr <- rr_causal_forest(X.train, Y.train, W.train, rct = rct_flag)
+
+# Predict relative conditional treatment effect
+rr.pred <- rr_predict(forest.rr, X.test)
+
+# Test for treatment effect heterogeneity
+pval <- rr_test_calibration(forest.rr, X.test, Y.test, W.test)
 ```
 
 ### References
