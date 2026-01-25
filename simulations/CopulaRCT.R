@@ -1,3 +1,5 @@
+library(devtools)
+#install_github("rje42/causl")
 library(causl)
 library(data.table)
 
@@ -14,7 +16,7 @@ copula_rct <- function(n, rho = 0, seed = 111){
                C1 = list(beta=c(0)),
                C2 = list(beta=c(-2,1)),
                C3 = list(beta=c(0,0.1), phi = 1),
-               C4 = list(beta=c(0,0.1), phi=0.1, par2=20),
+               C4 = list(beta=c(0,0.1), phi=0.1, df=20),
                Y = list(beta=c(-2, -0.2, 0.3, 0.4, -rho, -rho, rho, rho)), 
                cop = list(Y=list(X1=list(beta=c(0,0.5)),
                                  X2=list(beta=c(-0.5,0)),
