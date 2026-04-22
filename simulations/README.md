@@ -1,9 +1,10 @@
 # Simulations
 
-This folder contains all code required to reproduce the simulation studies in  
-**Shirvaikar, Storås, Lin and Holmes (2024)**.
+This folder contains supplementary code for **Shirvaikar, Storås, Lin and Holmes (2024)**.
 
-The simulations are organized into three stages: data generation, simulation runs, and diagnostics.
+**`ExampleRRCF.R`** demonstrates how to generate example data, fit a relative risk causal forest, predict relative conditional treatment effects, and conduct an omnibus test for the overall detection of heterogeneity. To aid interested readers, **`ExampleMOB.R`** mirrors the same example data setup and workflow for model-based forests (MOB).
+
+Code to reproduce the simulation study is organized into three stages: data generation, simulation runs, and diagnostics.
 
 ### Data Generation
 
@@ -36,8 +37,9 @@ These scripts are the main entry points for reproducing the simulation results i
 
 All figures reported in the paper are produced using this script.
 
-## Recommended Workflow
+### Recommended Workflow
 
-1. Run `CopulaRCT.R` and/or `CopulaObs.R` to verify and inspect data generation.
-2. Execute `SimRCT.R` and/or `SimObs.R` to run the full simulation studies.
-3. Run `Diagnostics.R` to aggregate results and produce summary plots and tables.
+1. Run `ExampleRRCF.R` and/or `ExampleMOB.R` for a quick end-to-end example.
+2. Run `CopulaRCT.R` and/or `CopulaObs.R` to verify and inspect data generation.
+3. Execute `SimRCT.R` and/or `SimObs.R` to run the full simulation studies.
+4. Run `Diagnostics.R` to aggregate results and produce summary plots and tables.
