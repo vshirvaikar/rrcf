@@ -1,7 +1,4 @@
-library(devtools)
-#install_github("rje42/causl")
-library(causl)
-library(data.table)
+# Generates simulated observational data with the frugal parametrization
 
 copula_obs <- function(n, rho = 0, seed = 111){
   fam <- list(c(1,3,4),c(5,5,5,1,2),c(5),c(1,3,4))  
@@ -28,43 +25,19 @@ copula_obs <- function(n, rho = 0, seed = 111){
   set.seed(seed)
   dat <- as.data.table(rfrugalParam(n, formulas=forms, pars=pars, 
                                     family=fam, link=link))
-  
-  # construct a model matrix and calculate the true CATE
   dat2 <- copy(dat)
   mm <- model.matrix(forms[[3]],dat2[,A:=1])-model.matrix(forms[[3]],dat2[,A:=0]) 
   dat$CRTE <- exp(mm %*% pars$Y$beta)
-  #summary(mm %*% pars$Y$beta)
   return(dat)
 }
 
-test1 <- copula_obs(n = 10000, rho = 0.25)
-mean(test1$A)
-x = test1[, !c("A", "Y", "CRTE"), with=FALSE]
-forest.hat = causal_forest(x, test1$Y, test1$A, num.trees=2)
-hist(forest.hat$W.hat)
-summary(forest.hat$W.hat)
+# Test: as the heterogeneity level (rho) increases, the spread in conditional
+# relative treatment effect increases, while the median stays roughly constant
 
-test2 <- copula_obs(10000, 0)
-crtes = c(0, summary(test2$CRTE))
+test <- copula_obs(1000, 0)
+crtes = c(0, summary(test$CRTE))
 for(rho in seq(0.25, 1, 0.25)){
-  test2 <- copula_obs(10000, rho)
-  crtes = rbind(crtes, c(rho, summary(test2$CRTE)))
+  test <- copula_obs(1000, rho)
+  crtes = rbind(crtes, c(rho, summary(test$CRTE)))
 }
 crtes
-
-# Plot the distribution of true CRTE by rho level
-df <- data.frame(
-  value = c(copula_obs(10000, 0.25)$CRTE, 
-            copula_obs(10000, 0.5)$CRTE, 
-            copula_obs(10000, 0.75)$CRTE),
-  group = factor(rep(c("0.25", "0.5", "0.75"), each = 10000))
-)
-vline_value <- mean(copula_obs(10000, 0)$CRTE)
-
-ggplot(df, aes(x = value, fill = group)) +
-  geom_density(alpha = 0.5) + xlim(0, 2) +   theme_minimal() +
-  geom_vline(xintercept = vline_value, color = "black", 
-             linetype = "dashed", size = 1) + 
-  scale_fill_manual(values = c("blue", "red", "green")) + 
-  labs(title = "Overlapping Density Curves",
-       x = "Value", y = "Density", fill = "Group")

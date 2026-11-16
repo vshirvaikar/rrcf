@@ -1,7 +1,4 @@
-library(devtools)
-#install_github("rje42/causl")
-library(causl)
-library(data.table)
+# Generates simulated RCT data with the frugal parametrization
 
 copula_rct <- function(n, rho = 0, seed = 111){
   fam <- list(c(1,3,4),c(5,5,5,1,2),c(5),c(1,3,4))  
@@ -28,23 +25,19 @@ copula_rct <- function(n, rho = 0, seed = 111){
   set.seed(seed)
   dat <- as.data.table(rfrugalParam(n, formulas=forms, pars=pars, 
                                     family=fam, link=link))
-  
-  # construct a model matrix and calculate the true CATE
   dat2 <- copy(dat)
   mm <- model.matrix(forms[[3]],dat2[,A:=1])-model.matrix(forms[[3]],dat2[,A:=0]) 
   dat$CRTE <- exp(mm %*% pars$Y$beta)
-  #summary(mm %*% pars$Y$beta)
   return(dat)
 }
 
-test1 <- copula_rct(n = 10000)
-test1[,mean(Y),A]
-summary(test1$CRTE)
+# Test: as the heterogeneity level (rho) increases, the spread in conditional
+# relative treatment effect increases, while the median stays roughly constant
 
-test2 <- copula_rct(10000, 0)
-crtes = c(0, summary(test2$CRTE))
+test <- copula_rct(1000, 0)
+crtes = c(0, summary(test$CRTE))
 for(rho in seq(0.25, 1, 0.25)){
-  test2 <- copula_rct(10000, rho)
-  crtes = rbind(crtes, c(rho, summary(test2$CRTE)))
+  test <- copula_rct(1000, rho)
+  crtes = rbind(crtes, c(rho, summary(test$CRTE)))
 }
 crtes

@@ -1,45 +1,36 @@
 # Simulations
 
-This folder contains supplementary code for **Shirvaikar, Storås, Lin and Holmes (2024)**.
+This folder contains supplementary code for "Targeting relative risk heterogeneity with causal forests". The code is organized into five stages: setup, minimal examples (optional), data generation, simulation runs, and diagnostics.
 
-**`ExampleRRCF.R`** demonstrates how to generate example data, fit a relative risk causal forest, predict relative conditional treatment effects, and conduct an omnibus test for the overall detection of heterogeneity. To aid interested readers, **`ExampleMOB.R`** mirrors the same example data setup and workflow for model-based forests (MOB).
+### 1. Setup
 
-Code to reproduce the simulation study is organized into three stages: data generation, simulation runs, and diagnostics.
+Run this script once at the start of each session before running the scripts below.
 
-### Data Generation
+- **`Setup.R`**: Installs missing package dependencies (CRAN and GitHub) and loads required libraries.
 
-- **`CopulaRCT.R`**  
-  Simulates randomized controlled trial (RCT) data using the *frugal parameterization*.
+### 2. Minimal Examples (Optional)
 
-- **`CopulaObs.R`**  
-  Simulates observational data using the frugal parameterization.
+- **`Examples.R`**: Demonstrates an end-to-end workflow: generate example data, fit the model, predict relative conditional treatment effects, and run an omnibus heterogeneity test. Contains implementations for all three methods discussed in the paper: relative risk causal forests (RRCF), generalized random forests (GRF), and model-based forests (MOB).
 
-Both scripts rely on functionality from the <a href="https://github.com/rje42/causl">causl</a> package.
+### 3. Data Generation
 
-### Simulation Runs
+These scripts rely on functionality from the <a href="https://github.com/rje42/causl">causl</a> package.
 
-- **`SimRCT.R`**  
-  Runs the full RCT simulation study across 100 trials. The script logs summary statistics
-  including ANOVA calibration p-values, variable importance measures, and related metrics.
+- **`CopulaRCT.R`**: Simulates randomized controlled trial (RCT) data using the frugal parameterization.
 
-- **`SimObs.R`**  
-  Runs the corresponding observational data simulation study across 100 trials.
+- **`CopulaObs.R`**: Simulates observational data using the frugal parameterization.
+
+### 4. Simulation Runs
 
 These scripts are the main entry points for reproducing the simulation results in the paper.
 
-### Diagnostics and Visualization
+- **`SimRCT.R`**: Runs the full RCT simulation study across 100 trials. The script logs summary statistics, including ANOVA calibration p-values, variable importance measures, and related metrics.
 
-- **`Diagnostics.R`**  
-  Aggregates simulation outputs and generates diagnostic figures, including:
-  - Empirical power and type I error rates  
-  - Distributions of ANOVA calibration p-values  
-  - Variable importance summaries  
+- **`SimObs.R`**: Runs the corresponding observational data simulation study across 100 trials.
 
-All figures reported in the paper are produced using this script.
+### 5. Diagnostics
 
-### Recommended Workflow
+Figures reported in the paper are produced using this script.
 
-1. Run `ExampleRRCF.R` and/or `ExampleMOB.R` for a quick end-to-end example.
-2. Run `CopulaRCT.R` and/or `CopulaObs.R` to verify and inspect data generation.
-3. Execute `SimRCT.R` and/or `SimObs.R` to run the full simulation studies.
-4. Run `Diagnostics.R` to aggregate results and produce summary plots and tables.
+- **`Diagnostics.R`**: Aggregates simulation outputs and generates diagnostic figures, including empirical power and type I error rates; distributions of ANOVA calibration p-values; and variable importance summaries.
+
